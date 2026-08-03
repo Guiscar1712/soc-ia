@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# Large local masters (keep on disk, skip git)
+/public/images/*-original.jpg
+/public/caixa-preta.mp4
+
+# Agent notes
+/skill-observations/

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><rect width="16" height="16" rx="3" fill="#0C0A08"></rect>
+  <g transform="rotate(35 4.2 7.6)"><rect x="0.6" y="6.6" width="3.6" height="2" rx="0.4" fill="#C7844A"></rect></g>
+  <path d="M4 7.6 V13 H12 V7.6" fill="none" stroke="#C7844A" stroke-width="2" stroke-linejoin="round"></path>
+  <g transform="rotate(-35 11.8 7.6)"><rect x="11.8" y="6.6" width="3.6" height="2" rx="0.4" fill="#C7844A"></rect></g>
+  <polygon points="8,0.2 8.8,2.2 10.8,3 8.8,3.8 8,5.8 7.2,3.8 5.2,3 7.2,2.2" fill="#C7844A"></polygon>
+  <polygon points="12.2,0.8 12.6,1.9 13.7,2.3 12.6,2.7 12.2,3.8 11.8,2.7 10.7,2.3 11.8,1.9" fill="#C7844A"></polygon>
+</svg>
