@@ -41,20 +41,20 @@ CardSticky.displayName = "CardSticky";
 
 const ROLES = [
   {
-    title: "A centralizadora",
-    body: "Tudo passa por você. Pasta, cliente, cobrança, dúvida da equipe.",
+    title: "Tudo passa por você",
+    body: "A equipe espera sua confirmação, sua revisão e sua decisão para praticamente tudo.",
   },
   {
-    title: "A que revisa tudo",
-    body: "Nenhuma peça sai sem o seu olho. Qualidade alta, fila eterna.",
+    title: "Você revisa e controla cada detalhe",
+    body: "Nenhuma entrega parece segura sem o seu olhar, e a fila só aumenta.",
   },
   {
-    title: "A que repete instrução",
-    body: "A mesma explicação toda semana. Treinamento que nunca fecha.",
+    title: "Você repete as mesmas orientações",
+    body: "As instruções se perdem em mensagens, reuniões e conversas que precisam acontecer de novo.",
   },
   {
-    title: "A que não cresce",
-    body: "Volume sobe, sobrecarga sobe junto. Crescer vira só mais caos.",
+    title: "O escritório cresce, mas o caos cresce junto",
+    body: "Mais clientes aumentam o faturamento, mas também aumentam a sobrecarga e a desorganização.",
   },
 ];
 
@@ -66,15 +66,13 @@ export function Pain() {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="mb-12 md:mb-16 max-w-3xl">
-          <div className="text-[11px] uppercase tracking-[0.22em] text-muted mb-6">
-            O problema
-          </div>
           <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl leading-[1.05] tracking-[-0.02em] text-paper text-balance">
-            Hoje o escritório funciona por memória,
-            <br className="hidden md:block" /> mensagem solta e improviso.
+            O seu escritório cresceu. A operação acompanhou?
           </h2>
-          <p className="mt-6 text-lg text-paper/60 max-w-xl">
-            Você virou tudo isso?
+          <p className="mt-6 text-lg text-paper/60 max-w-2xl">
+            Quando processos, decisões e orientações vivem apenas na cabeça da
+            sócia, o escritório até funciona, mas funciona com dependência,
+            interrupções e retrabalho.
           </p>
         </div>
 
@@ -105,8 +103,8 @@ export function Pain() {
         </ContainerScroll>
 
         <p className="mt-20 md:mt-28 max-w-3xl font-serif text-2xl md:text-4xl leading-[1.15] tracking-[-0.015em] text-paper">
-          Seu escritório não trava por falta de cliente. Trava porque a
-          operação só existe na sua cabeça.
+          O problema não é apenas falta de tempo. É uma operação que ainda
+          depende demais de você.
         </p>
       </div>
     </section>

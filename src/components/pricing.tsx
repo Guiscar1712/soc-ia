@@ -7,21 +7,13 @@ import { assets } from "@/lib/assets";
 
 const FEATURE_GROUPS = [
   {
-    title: "Procedimentos e ferramentas",
+    title: "O que está incluído",
     items: [
-      "Processos internos (fluxos, POP, checklists)",
-      "Gestão e equipe (cargos, reunião, feedback)",
-      "Comercial e organização (atendimento, leads, metas)",
-      "Modelos editáveis para adaptar à sua realidade",
-    ],
-  },
-  {
-    title: "Agentes SÓC.IA",
-    items: [
-      "Agente Criador de Processos",
-      "Agente de Estruturação de Equipe",
-      "Agente de Gestão de Escritório",
-      "Prompts e skills prontos para o jurídico",
+      "Procedimentos e modelos editáveis",
+      "Ferramentas de gestão e equipe",
+      "Materiais comerciais e organizacionais",
+      "Três agentes SÓC.IA",
+      "Instruções e comandos para configuração no Claude",
     ],
   },
 ];
@@ -30,14 +22,12 @@ export function Pricing() {
   return (
     <section id="oferta" className="w-full bg-surface py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="text-[11px] uppercase tracking-[0.22em] text-muted mb-6">
-          Oferta
-        </div>
         <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl leading-[1.05] tracking-[-0.02em] text-paper max-w-3xl text-balance">
-          Tudo isso por um valor de entrada.
+          Comece a estruturar sem começar do zero.
         </h2>
-        <p className="mt-6 max-w-xl text-lg text-paper/60">
-          Processos, ferramentas e os três agentes de IA. Pagamento único.
+        <p className="mt-6 max-w-2xl text-lg text-paper/60">
+          Tenha acesso aos bastidores de gestão e IA de um escritório real por
+          meio de um pack prático, editável e feito para aplicação.
         </p>
 
         <motion.div
@@ -55,6 +45,10 @@ export function Pricing() {
               <div className="mt-2 font-serif text-4xl md:text-5xl text-paper leading-tight">
                 Caixa Preta SÓC.IA
               </div>
+              <p className="mt-4 text-[15px] leading-relaxed text-paper/60 max-w-sm">
+                Pack de procedimentos, ferramentas e agentes de IA para
+                escritórios de advocacia.
+              </p>
 
               <div className="mt-10 flex items-baseline gap-3">
                 <span className="text-[11px] uppercase tracking-[0.22em] text-muted">
@@ -129,6 +123,12 @@ export function Pricing() {
             </div>
           </div>
         </motion.div>
+
+        <p className="mt-8 max-w-2xl text-sm leading-relaxed text-paper/45">
+          A Caixa Preta é um produto de aplicação autônoma. Não inclui suporte
+          individual, personalização dos materiais, reuniões ou implementação
+          acompanhada.
+        </p>
       </div>
     </section>
   );

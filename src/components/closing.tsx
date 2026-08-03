@@ -10,11 +10,16 @@ export function Closing() {
     <section className="w-full bg-background pt-24 md:pt-32 pb-20 md:pb-28 border-t border-line">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="max-w-4xl">
-          <div className="text-[11px] uppercase tracking-[0.22em] text-muted mb-6">
-            —
-          </div>
-          <p className="font-serif text-3xl md:text-5xl lg:text-6xl leading-[1.05] tracking-[-0.02em] text-paper text-balance">
-            Sistemas criam padrão. Organização cria clareza. IA dá alavancagem.
+          <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl leading-[1.05] tracking-[-0.02em] text-paper text-balance">
+            Seu escritório não precisa depender da sua memória para funcionar.
+          </h2>
+          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-paper/65">
+            Transforme rotinas soltas em processos, ferramentas e estruturas que
+            possam ser adaptadas, aplicadas e utilizadas pela sua equipe.
+          </p>
+          <p className="mt-10 max-w-3xl font-serif text-xl md:text-2xl leading-[1.3] text-paper/90">
+            Sistemas criam padrão. Organização cria clareza. Crescimento cria
+            direção. IA cria alavancagem.
           </p>
           <a
             href="#oferta"

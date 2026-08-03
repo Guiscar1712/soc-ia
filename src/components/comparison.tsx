@@ -5,24 +5,29 @@ import { cn } from "@/lib/utils";
 
 const ROWS: { feature: string; antes: string; depois: string }[] = [
   {
-    feature: "Materiais e processos",
-    antes: "Espalhados e só na cabeça da sócia",
-    depois: "Prontos para adaptar e aplicar",
+    feature: "Processos e materiais",
+    antes: "Espalhados ou apenas na cabeça da sócia",
+    depois: "Procedimentos prontos para adaptar",
+  },
+  {
+    feature: "Equipe",
+    antes: "Dependente de orientações constantes",
+    depois: "Mais clareza para documentar e delegar",
   },
   {
     feature: "Uso de IA",
-    antes: "Improvisado, prompts soltos",
-    depois: "Métodos padronizados e agentes configurados",
+    antes: "Pontual e improvisado",
+    depois: "Agentes prontos para configurar e usar no Claude",
   },
   {
-    feature: "Autonomia da equipe",
-    antes: "Dependência total de você",
-    depois: "Padrão claro, menos interrupção",
+    feature: "Padronização",
+    antes: "Difícil documentar e padronizar rotinas",
+    depois: "Ferramentas de gestão organizadas",
   },
   {
-    feature: "Rotina virando método",
-    antes: "Difícil de transformar e documentar",
-    depois: "Escritório que roda com padrão",
+    feature: "Novas necessidades",
+    antes: "Cada demanda começa do zero",
+    depois: "Base para criar novos processos sem recomeçar tudo",
   },
 ];
 
@@ -30,11 +35,9 @@ export function Comparison() {
   return (
     <section id="antes-depois" className="w-full bg-surface py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="text-[11px] uppercase tracking-[0.22em] text-muted mb-6">
-          Antes / depois
-        </div>
         <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl leading-[1.05] tracking-[-0.02em] text-paper max-w-3xl text-balance">
-          O escritório antes da Caixa Preta e depois dela.
+          O escritório antes da Caixa Preta. E depois da aplicação dos
+          materiais.
         </h2>
 
         <motion.div
@@ -54,7 +57,7 @@ export function Comparison() {
                   Antes
                 </th>
                 <th className="p-4 md:p-6 text-[11px] uppercase tracking-[0.22em] text-accent font-normal w-[39%] bg-accent/5">
-                  Depois
+                  Depois da aplicação
                 </th>
               </tr>
             </thead>
@@ -81,6 +84,11 @@ export function Comparison() {
             </tbody>
           </table>
         </motion.div>
+
+        <p className="mt-6 max-w-2xl text-sm text-paper/50">
+          Os resultados dependem da adaptação e da aplicação dos materiais na
+          rotina do escritório.
+        </p>
       </div>
     </section>
   );

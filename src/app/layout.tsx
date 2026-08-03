@@ -19,9 +19,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Caixa Preta SÓC.IA — Processos, ferramentas e IA para o escritório",
+  title:
+    "Caixa Preta SÓC.IA — Procedimentos, ferramentas e agentes de IA para o escritório",
   description:
-    "Processos, ferramentas e agentes prontos para adaptar e aplicar. Sem aulas, sem consultoria cara, sem começar do zero.",
+    "Abra a caixa-preta de um escritório estruturado e tenha acesso aos procedimentos, ferramentas e agentes de IA que ajudam a transformar rotina em gestão.",
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Caixa Preta SÓC.IA",
     description:
-      "Abra a caixa-preta de um escritório estruturado: processos, ferramentas e agentes de IA.",
+      "Abra a caixa-preta de um escritório estruturado e tenha acesso aos procedimentos, ferramentas e agentes de IA que ajudam a transformar rotina em gestão.",
     images: [
       {
         url: "/og.png",
@@ -49,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Caixa Preta SÓC.IA",
     description:
-      "Processos, ferramentas e agentes prontos para adaptar e aplicar.",
+      "Procedimentos, ferramentas e agentes de IA para transformar rotina em gestão.",
     images: ["/og.png"],
   },
 };

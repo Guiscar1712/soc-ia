@@ -16,23 +16,23 @@ const FEATURES: Feature[] = [
     step: "01",
     title: "Processos internos",
     content:
-      "Fluxos, checklists, modelo editável de POP, manuais, rotinas e mensagens padronizadas.",
+      "Materiais prontos para adaptar: POPs, fluxos, checklists, modelo editável de POP, rotinas operacionais e mensagens padronizadas.",
     bullets: [
-      "Fluxos operacionais",
+      "POPs e fluxos operacionais",
       "Checklists prontos",
       "Modelo de POP editável",
-      "Mensagens padronizadas",
+      "Rotinas e mensagens padronizadas",
     ],
   },
   {
     step: "02",
     title: "Gestão e equipe",
     content:
-      "Organograma, cargos, matriz de responsabilidades, reunião, planejamento e feedback.",
+      "Arquivos editáveis para organizar equipe: organograma, descrição de cargos, matriz de responsabilidades, reuniões, planejamento, integração e feedback.",
     bullets: [
       "Organograma e cargos",
       "Matriz de responsabilidades",
-      "Modelo de reunião",
+      "Reuniões e planejamento",
       "Integração e feedback",
     ],
   },
@@ -40,24 +40,23 @@ const FEATURES: Feature[] = [
     step: "03",
     title: "Comercial e organização",
     content:
-      "Roteiro de atendimento, follow-up, leads, proposta, metas e indicadores básicos.",
+      "Estruturas para aplicar na rotina: roteiros de atendimento, follow-up, controle de leads, proposta, metas e indicadores básicos.",
     bullets: [
-      "Roteiro de atendimento",
-      "Follow-up e leads",
+      "Roteiros de atendimento",
+      "Follow-up e controle de leads",
       "Modelo de proposta",
-      "Painel de metas",
+      "Metas e indicadores básicos",
     ],
   },
   {
     step: "04",
     title: "Agentes SÓC.IA",
     content:
-      "Três agentes prontos: criar processos, estruturar equipe e organizar a gestão do escritório.",
+      "Agentes de IA desenvolvidos para a gestão do escritório. Cada um inclui as instruções e os comandos necessários para configuração e utilização no Claude. Criador de Processos: estrutura fluxo, POP e checklist. Estruturação de Equipe: cargos, organograma e delegação. Gestão do Escritório: prioridades, reuniões e planos de ação.",
     bullets: [
-      "Criador de Processos",
-      "Estruturação de Equipe",
-      "Gestão de Escritório",
-      "Prompts e skills prontos",
+      "Agente Criador de Processos",
+      "Agente de Estruturação de Equipe",
+      "Agente de Gestão do Escritório",
     ],
   },
 ];
@@ -69,15 +68,13 @@ export function Stack() {
     <section id="stack" className="w-full bg-background py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="mb-14 md:mb-20 max-w-3xl">
-          <div className="text-[11px] uppercase tracking-[0.22em] text-muted mb-6">
-            O que tem dentro
-          </div>
           <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl leading-[1.05] tracking-[-0.02em] text-paper text-balance">
-            Não é um curso. É a operação pronta.
+            Você recebe o que já está pronto e a inteligência para criar o que
+            ainda falta.
           </h2>
           <p className="mt-6 text-lg text-paper/60 max-w-xl">
-            Procedimentos e ferramentas para baixar, editar e implementar. Mais
-            três agentes de IA prontos para o jurídico.
+            Dois grandes blocos de entrega, pensados para transformar rotina em
+            estrutura.
           </p>
         </div>
 
@@ -201,7 +198,11 @@ export function Stack() {
                   </ul>
 
                   <div className="flex items-center justify-between text-[10px] uppercase tracking-[0.22em] text-muted">
-                    <span>Baixar · Editar · Aplicar</span>
+                    <span>
+                      {current === 3
+                        ? "Configurar · Usar no Claude"
+                        : "Baixar · Editar · Aplicar"}
+                    </span>
                     <span className="tabular-nums">
                       {String(current + 1).padStart(2, "0")} /{" "}
                       {String(FEATURES.length).padStart(2, "0")}

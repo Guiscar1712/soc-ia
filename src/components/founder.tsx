@@ -69,20 +69,6 @@ export function Founder() {
           </motion.div>
 
           <div className="md:col-span-7 md:pl-2 lg:pl-8">
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
-              transition={
-                reduce === true
-                  ? { duration: 0 }
-                  : { duration: 0.45, ease: [0.22, 1, 0.36, 1] }
-              }
-              className="text-[11px] uppercase tracking-[0.22em] text-bronze-2 mb-6"
-            >
-              Idealizadora
-            </motion.p>
-
             <motion.blockquote
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -98,8 +84,8 @@ export function Founder() {
               }
               className="font-serif text-2xl sm:text-3xl md:text-4xl leading-[1.2] tracking-[-0.02em] text-paper text-balance"
             >
-              “Abri a caixa-preta do meu escritório pra você não começar do
-              zero.”
+              “Eu abri a caixa-preta da minha gestão para você não precisar
+              começar do zero.”
             </motion.blockquote>
 
             <motion.div
@@ -121,11 +107,12 @@ export function Founder() {
                 Nathalia Fava
               </cite>
               <span className="text-sm text-muted">
-                Fundadora da SÓC.IA · Advogada e gestora
+                Fundadora da SÓC.IA · Advogada, empresária e gestora de
+                escritório
               </span>
             </motion.div>
 
-            <motion.p
+            <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.5 }}
@@ -138,12 +125,19 @@ export function Founder() {
                       ease: [0.22, 1, 0.36, 1],
                     }
               }
-              className="mt-7 max-w-lg text-[15px] leading-relaxed text-paper/65"
+              className="mt-7 max-w-lg space-y-4 text-[15px] leading-relaxed text-paper/65"
             >
-              A Caixa Preta reúne os processos, ferramentas e agentes de IA que
-              estruturam a operação de um escritório real. Material pronto para
-              adaptar à sua realidade.
-            </motion.p>
+              <p>
+                A Caixa Preta SÓC.IA nasceu da prática de quem vive a gestão de
+                um escritório de advocacia todos os dias.
+              </p>
+              <p>
+                Eu reuni procedimentos, modelos, ferramentas e estruturas de IA
+                criadas ou utilizadas na operação real do meu escritório para
+                que você possa adaptar tudo à sua realidade, sem passar meses
+                tentando organizar o que já poderia estar pronto.
+              </p>
+            </motion.div>
           </div>
         </div>
       </div>
