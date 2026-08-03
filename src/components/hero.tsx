@@ -20,12 +20,24 @@ export function Hero() {
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
+
     if (reduceMotion === true) {
       video.pause();
       video.currentTime = 0;
       return;
     }
-    void video.play().catch(() => {});
+
+    const tryPlay = () => {
+      void video.play().catch(() => {});
+    };
+
+    tryPlay();
+    video.addEventListener("canplay", tryPlay);
+    video.addEventListener("loadeddata", tryPlay);
+    return () => {
+      video.removeEventListener("canplay", tryPlay);
+      video.removeEventListener("loadeddata", tryPlay);
+    };
   }, [reduceMotion]);
 
   return (
@@ -37,14 +49,16 @@ export function Hero() {
         <video
           ref={videoRef}
           src="/caixa-preta-clean.mp4"
-          className="absolute inset-0 h-full w-full object-cover object-center"
+          poster="/images/hero-poster.jpg"
+          className="absolute inset-0 h-full w-full scale-105 object-cover object-[center_40%]"
+          autoPlay
           muted
           loop
           playsInline
           preload="auto"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/80 to-ink/45" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/45 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/15" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/80 via-ink/30 to-transparent" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-12 pt-28 md:pt-32 pb-14 md:pb-20">
