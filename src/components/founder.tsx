@@ -27,7 +27,7 @@ export function Founder() {
   const imageY = useTransform(
     scrollYProgress,
     [0, 1],
-    parallaxOn ? ["6%", "-6%"] : [0, 0]
+    parallaxOn ? ["6%", "-6%"] : ["0%", "0%"]
   );
 
   return (
