@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowRight } from "@phosphor-icons/react";
+import { assets } from "@/lib/assets";
 
 const BULLETS = [
   "Processos prontos para adaptar",
@@ -48,8 +49,8 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
         <video
           ref={videoRef}
-          src="/caixa-preta-clean.mp4"
-          poster="/images/hero-poster.jpg"
+          src={assets.heroVideo}
+          poster={assets.heroPoster}
           className="absolute inset-0 h-full w-full scale-105 object-cover object-[center_40%]"
           autoPlay
           muted

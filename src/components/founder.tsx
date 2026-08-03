@@ -8,6 +8,7 @@ import {
   useScroll,
   useTransform,
 } from "motion/react";
+import { assets } from "@/lib/assets";
 
 export function Founder() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -55,7 +56,7 @@ export function Founder() {
                 style={parallaxOn ? { y: imageY } : undefined}
               >
                 <Image
-                  src="/images/nathalia-fava.jpg"
+                  src={assets.nathalia}
                   alt="Nathalia Fava, fundadora da SÓC.IA"
                   fill
                   sizes="(min-width: 1280px) 520px, (min-width: 768px) 42vw, 100vw"

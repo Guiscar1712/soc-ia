@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "motion/react";
 import { ArrowRight } from "@phosphor-icons/react";
+import { assets } from "@/lib/assets";
 
 const FEATURE_GROUPS = [
   {
@@ -70,7 +71,7 @@ export function Pricing() {
               <div className="mt-8 flex items-center gap-3">
                 <div className="relative h-11 w-11 overflow-hidden rounded-full border border-line shrink-0">
                   <Image
-                    src="/images/nathalia-fava-card.jpg"
+                    src={assets.nathaliaCard}
                     alt=""
                     fill
                     sizes="44px"
