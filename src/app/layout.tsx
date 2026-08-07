@@ -1,21 +1,23 @@
 import type { Metadata } from "next";
-import { Outfit, Fraunces, Geist_Mono } from "next/font/google";
+import { Outfit, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
+  weight: ["300", "500", "600"],
 });
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-  axes: ["opsz", "SOFT"],
+  weight: ["300", "400", "600"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const jetbrains = JetBrains_Mono({
+  variable: "--font-jetbrains",
   subsets: ["latin"],
+  weight: ["300", "400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -63,7 +65,7 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${outfit.variable} ${fraunces.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${outfit.variable} ${inter.variable} ${jetbrains.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
         {children}

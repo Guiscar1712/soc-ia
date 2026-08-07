@@ -35,7 +35,7 @@ export function Comparison() {
   return (
     <section id="antes-depois" className="w-full bg-surface py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl leading-[1.05] tracking-[-0.02em] text-paper max-w-3xl text-balance">
+        <h2 className="font-display text-3xl md:text-5xl lg:text-6xl leading-[1.05] tracking-[-0.02em] text-paper max-w-3xl text-balance">
           O escritório antes da Caixa Preta. E depois da aplicação dos
           materiais.
         </h2>
@@ -45,18 +45,18 @@ export function Comparison() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.5 }}
-          className="mt-12 md:mt-16 overflow-x-auto rounded-2xl border border-line bg-surface"
+          className="mt-12 md:mt-16 overflow-x-auto rounded-[var(--radius-card)] border border-line bg-surface"
         >
           <table className="w-full min-w-[640px] border-collapse text-left">
             <thead>
               <tr className="border-b border-line">
-                <th className="p-4 md:p-6 text-[11px] uppercase tracking-[0.22em] text-muted font-normal w-[22%]">
+                <th className="p-4 md:p-6 text-[11px] font-mono uppercase tracking-[0.22em] text-muted font-normal w-[22%]">
                   Ponto
                 </th>
-                <th className="p-4 md:p-6 text-[11px] uppercase tracking-[0.22em] text-muted font-normal w-[39%]">
+                <th className="p-4 md:p-6 text-[11px] font-mono uppercase tracking-[0.22em] text-muted font-normal w-[39%]">
                   Antes
                 </th>
-                <th className="p-4 md:p-6 text-[11px] uppercase tracking-[0.22em] text-accent font-normal w-[39%] bg-accent/5">
+                <th className="p-4 md:p-6 text-[11px] font-mono uppercase tracking-[0.22em] text-accent font-normal w-[39%] bg-accent/5">
                   Depois da aplicação
                 </th>
               </tr>
@@ -70,7 +70,7 @@ export function Comparison() {
                     i < ROWS.length - 1 && "border-b border-line"
                   )}
                 >
-                  <td className="p-4 md:p-6 font-serif text-lg md:text-xl text-paper leading-tight">
+                  <td className="p-4 md:p-6 font-display text-lg md:text-xl text-paper leading-tight">
                     {row.feature}
                   </td>
                   <td className="p-4 md:p-6 text-[15px] leading-relaxed text-paper/45 line-through decoration-paper/20">

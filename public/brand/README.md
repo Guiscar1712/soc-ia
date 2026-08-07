@@ -1,27 +1,27 @@
 # SÓC.IA — brand kit
 
-Pasta organizada a partir dos exports oficiais.
+Assets oficiais do Guia de Design Caixa Preta SÓC.IA v1.0.
+
+## Variantes
+| Arquivo | Uso |
+|---|---|
+| `lockup-horizontal-nav.png` | Header / fundo escuro (transparente) |
+| `lockup-horizontal.png` | Assinatura horizontal dark |
+| `lockup-horizontal-light.png` | Assinatura horizontal fundo claro |
+| `lockup-stacked.png` / `-light.png` | Peças estreitas / capa |
+| `lockup-stacked-nav.png` | Stacked transparente |
+| `icon-mark.png` | Ícone com fundo preto |
+| `icon-mark-transparent.png` | Símbolo isolado |
+| `official/` | Originais enviados pela marca |
+
+## React
+```tsx
+import { BrandLockup, BrandMark, BrandLockupStacked } from "@/components/brand-mark";
+
+<BrandLockup priority />           // nav (dark)
+<BrandLockup variant="light" />    // fundo claro
+<BrandMark className="h-8 w-8" />
+```
 
 ## Cores
-- bronze `#C7844A`
-- off-white `#EDE8E1`
-- matte black `#0C0A08`
-
-## Uso no site
-| Arquivo | Onde |
-|---|---|
-| `/favicon.svg` + `/favicon-32.png` | metadata / aba do browser |
-| `/apple-touch-icon.png` | iOS |
-| `/og.png` | Open Graph / WhatsApp / LinkedIn |
-| `/brand/lockup-horizontal.svg` | header |
-| `/brand/icon-mark.svg` | marca isolada |
-| `/images/nathalia-fava.jpg` | web 1600×2400 (q90) |
-| `/images/nathalia-fava-original.jpg` | master Canon 4160×6240 |
-
-## Favicon HTML (já no layout.tsx via Metadata API)
-```html
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="icon" sizes="32x32" href="/favicon-32.png">
-<link rel="icon" sizes="16x16" href="/favicon-16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-```
+`#0C0A08` · `#C7844A` · `#EDE8E1` · `#7D6F61`

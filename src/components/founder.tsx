@@ -50,7 +50,7 @@ export function Founder() {
                 : { duration: 0.65, ease: [0.22, 1, 0.36, 1] }
             }
           >
-            <div className="relative aspect-[3/4] w-full max-w-md md:max-w-none overflow-hidden rounded-2xl bg-ink border border-line">
+            <div className="relative aspect-[3/4] w-full max-w-md md:max-w-none overflow-hidden rounded-[var(--radius-card)] bg-ink border border-line">
               <motion.div
                 className="absolute inset-[-6%] will-change-transform"
                 style={parallaxOn ? { y: imageY } : undefined}
@@ -82,7 +82,7 @@ export function Founder() {
                       ease: [0.22, 1, 0.36, 1],
                     }
               }
-              className="font-serif text-2xl sm:text-3xl md:text-4xl leading-[1.2] tracking-[-0.02em] text-paper text-balance"
+              className="font-display text-2xl sm:text-3xl md:text-4xl leading-[1.2] tracking-[-0.02em] text-paper text-balance"
             >
               “Eu abri a caixa-preta da minha gestão para você não precisar
               começar do zero.”

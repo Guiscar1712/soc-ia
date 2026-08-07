@@ -84,7 +84,7 @@ export function Hero() {
                 ? { duration: 0 }
                 : { duration: 0.6, ease }
             }
-            className="font-serif text-[2.5rem] sm:text-5xl md:text-[4rem] lg:text-[4.75rem] leading-[1.02] tracking-[-0.02em] text-paper text-balance"
+            className="font-display text-[2.5rem] sm:text-5xl md:text-[4rem] lg:text-[4.75rem] leading-[1.02] tracking-[-0.02em] text-paper text-balance"
           >
             A operação do escritório não precisa viver na cabeça da sócia.
           </motion.h1>
@@ -97,7 +97,7 @@ export function Hero() {
                 ? { duration: 0 }
                 : { duration: 0.6, delay: 0.15, ease }
             }
-            className="mt-6 md:mt-8 max-w-2xl text-lg leading-relaxed text-paper/75"
+            className="mt-6 md:mt-8 max-w-2xl text-lg font-light leading-[1.6] text-paper/75"
           >
             Tenha acesso aos procedimentos, ferramentas editáveis e agentes de
             IA desenvolvidos a partir da operação de um escritório real,
@@ -117,7 +117,7 @@ export function Hero() {
           >
             <a
               href="#oferta"
-              className="group inline-flex items-center gap-2 h-12 px-6 text-sm font-medium text-accent-fg bg-accent rounded-full hover:brightness-110 transition active:scale-[0.98]"
+              className="group inline-flex items-center gap-2 h-12 px-6 text-sm font-medium text-accent-fg bg-accent rounded-[var(--radius-btn)] hover:bg-bronze-2 transition active:scale-[0.98]"
             >
               Quero abrir a Caixa Preta
               <ArrowRight

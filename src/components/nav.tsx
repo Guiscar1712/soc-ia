@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { List, X } from "@phosphor-icons/react";
 import { handleHashClick } from "@/lib/scroll";
+import { BrandLockup } from "@/components/brand-mark";
 
 const NAV_ITEMS = [
   { label: "O que é", href: "#o-que-e" },
@@ -45,21 +45,10 @@ export function Nav() {
         <a
           href="#top"
           onClick={(e) => handleHashClick(e, "#top")}
-          className="inline-flex items-center gap-2.5 shrink-0"
-          aria-label="SÓC.IA"
+          className="shrink-0"
+          aria-label="Caixa Preta SÓC.IA"
         >
-          <Image
-            src="/brand/icon-mark.svg"
-            alt=""
-            width={28}
-            height={28}
-            priority
-            className="h-7 w-7"
-          />
-          <span className="text-[15px] font-medium tracking-[-0.03em] leading-none">
-            <span className="text-accent">SÓC</span>
-            <span className="text-paper">.IA</span>
-          </span>
+          <BrandLockup priority />
         </a>
 
         <nav className="hidden md:flex items-center gap-9">
@@ -68,7 +57,7 @@ export function Nav() {
               key={item.label}
               href={item.href}
               onClick={(e) => handleHashClick(e, item.href)}
-              className="text-[13px] text-paper/60 hover:text-paper transition-colors"
+              className="text-[13px] font-normal text-muted hover:text-paper transition-colors"
             >
               {item.label}
             </a>
@@ -78,7 +67,7 @@ export function Nav() {
         <a
           href="#oferta"
           onClick={(e) => handleHashClick(e, "#oferta")}
-          className="hidden md:inline-flex items-center justify-center h-9 px-4 text-[13px] font-medium text-accent-fg bg-accent rounded-full hover:brightness-110 transition"
+          className="hidden md:inline-flex items-center justify-center h-9 px-4 text-[13px] font-medium text-accent-fg bg-accent rounded-[var(--radius-btn)] hover:bg-bronze-2 transition"
         >
           Ver oferta
         </a>
@@ -102,23 +91,12 @@ export function Nav() {
             transition={{ duration: 0.2 }}
           >
             <div className="flex items-center justify-between h-10">
-              <span className="inline-flex items-center gap-2.5">
-                <Image
-                  src="/brand/icon-mark.svg"
-                  alt=""
-                  width={28}
-                  height={28}
-                  className="h-7 w-7"
-                />
-                <span className="text-[15px] font-medium tracking-[-0.03em] leading-none">
-                  <span className="text-accent">SÓC</span>
-                  <span className="text-paper">.IA</span>
-                </span>
-              </span>
+              <BrandLockup />
               <button
                 className="p-2 text-paper -mr-2"
                 onClick={close}
                 aria-label="Fechar"
+                type="button"
               >
                 <X className="h-5 w-5" weight="regular" />
               </button>
@@ -129,7 +107,7 @@ export function Nav() {
                   key={item.label}
                   href={item.href}
                   onClick={(e) => handleHashClick(e, item.href, close)}
-                  className="text-2xl font-serif text-paper"
+                  className="text-2xl font-display text-paper"
                 >
                   {item.label}
                 </a>
@@ -137,7 +115,7 @@ export function Nav() {
               <a
                 href="#oferta"
                 onClick={(e) => handleHashClick(e, "#oferta", close)}
-                className="mt-6 inline-flex items-center justify-center h-12 px-5 text-sm font-medium text-accent-fg bg-accent rounded-full"
+                className="mt-6 inline-flex items-center justify-center h-12 px-5 text-sm font-medium text-accent-fg bg-accent rounded-[var(--radius-btn)]"
               >
                 Ver oferta
               </a>

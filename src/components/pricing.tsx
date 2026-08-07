@@ -22,7 +22,7 @@ export function Pricing() {
   return (
     <section id="oferta" className="w-full bg-surface py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl leading-[1.05] tracking-[-0.02em] text-paper max-w-3xl text-balance">
+        <h2 className="font-display text-3xl md:text-5xl lg:text-6xl leading-[1.05] tracking-[-0.02em] text-paper max-w-3xl text-balance">
           Comece a estruturar sem começar do zero.
         </h2>
         <p className="mt-6 max-w-2xl text-lg text-paper/60">
@@ -35,14 +35,14 @@ export function Pricing() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.5 }}
-          className="mt-14 md:mt-20 rounded-2xl border border-line bg-background/50 overflow-hidden"
+          className="mt-14 md:mt-20 rounded-[var(--radius-card)] border border-line bg-background/50 overflow-hidden"
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-14 p-8 md:p-10 lg:p-12">
             <div className="lg:col-span-5">
-              <div className="text-[11px] uppercase tracking-[0.22em] text-muted">
+              <div className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted">
                 Pack completo
               </div>
-              <div className="mt-2 font-serif text-4xl md:text-5xl text-paper leading-tight">
+              <div className="mt-2 font-display text-4xl md:text-5xl text-paper leading-tight">
                 Caixa Preta SÓC.IA
               </div>
               <p className="mt-4 text-[15px] leading-relaxed text-paper/60 max-w-sm">
@@ -51,10 +51,10 @@ export function Pricing() {
               </p>
 
               <div className="mt-10 flex items-baseline gap-3">
-                <span className="text-[11px] uppercase tracking-[0.22em] text-muted">
+                <span className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted">
                   R$
                 </span>
-                <span className="font-serif text-7xl md:text-8xl leading-none tracking-[-0.03em] text-paper tabular-nums">
+                <span className="font-display text-7xl md:text-8xl leading-none tracking-[-0.03em] text-paper tabular-nums">
                   79,90
                 </span>
               </div>
@@ -85,7 +85,7 @@ export function Pricing() {
 
               <a
                 href="#oferta"
-                className="group mt-8 inline-flex items-center gap-2 h-12 px-6 text-sm font-medium text-accent-fg bg-accent rounded-full hover:brightness-110 transition active:scale-[0.98]"
+                className="group mt-8 inline-flex items-center gap-2 h-12 px-6 text-sm font-medium text-accent-fg bg-accent rounded-[var(--radius-btn)] hover:bg-bronze-2 transition active:scale-[0.98]"
               >
                 Quero minha Caixa Preta
                 <ArrowRight
@@ -99,7 +99,7 @@ export function Pricing() {
               <div className="space-y-10">
                 {FEATURE_GROUPS.map((group) => (
                   <div key={group.title}>
-                    <div className="text-[11px] uppercase tracking-[0.22em] text-muted mb-5">
+                    <div className="text-[11px] font-mono uppercase tracking-[0.22em] text-muted mb-5">
                       {group.title}
                     </div>
                     <ul>

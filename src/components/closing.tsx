@@ -4,26 +4,27 @@ import {
   FacebookLogo,
 } from "@phosphor-icons/react/ssr";
 import { ArrowRight } from "@phosphor-icons/react/ssr";
+import { BrandLockup } from "@/components/brand-mark";
 
 export function Closing() {
   return (
     <section className="w-full bg-background pt-24 md:pt-32 pb-20 md:pb-28 border-t border-line">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="max-w-4xl">
-          <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl leading-[1.05] tracking-[-0.02em] text-paper text-balance">
+          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl leading-[1.05] tracking-[-0.02em] text-paper text-balance">
             Seu escritório não precisa depender da sua memória para funcionar.
           </h2>
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-paper/65">
             Transforme rotinas soltas em processos, ferramentas e estruturas que
             possam ser adaptadas, aplicadas e utilizadas pela sua equipe.
           </p>
-          <p className="mt-10 max-w-3xl font-serif text-xl md:text-2xl leading-[1.3] text-paper/90">
+          <p className="mt-10 max-w-3xl font-display text-xl md:text-2xl leading-[1.3] text-paper/90">
             Sistemas criam padrão. Organização cria clareza. Crescimento cria
             direção. IA cria alavancagem.
           </p>
           <a
             href="#oferta"
-            className="group mt-12 md:mt-16 inline-flex items-center gap-2 h-12 px-6 text-sm font-medium text-accent-fg bg-accent rounded-full hover:brightness-110 transition"
+            className="group mt-12 md:mt-16 inline-flex items-center gap-2 h-12 px-6 text-sm font-medium text-accent-fg bg-accent rounded-[var(--radius-btn)] hover:bg-bronze-2 transition"
           >
             Abrir a Caixa Preta
             <ArrowRight
@@ -41,9 +42,12 @@ export function Footer() {
   return (
     <footer className="w-full border-t border-line bg-background py-10">
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
-        <p className="text-sm text-paper/50">
-          © 2026 SÓC.IA
-        </p>
+        <div className="flex flex-col items-center md:items-start gap-3">
+          <BrandLockup className="h-7 md:h-8 opacity-90" />
+          <p className="text-sm text-paper/50">
+            © 2026 SÓC.IA · Caixa Preta v1.0
+          </p>
+        </div>
         <div className="flex items-center gap-5">
           <a
             href="https://www.instagram.com/"

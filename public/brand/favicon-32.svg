@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="#0C0A08"></rect>
-  <g transform="rotate(35 8 15)"><rect x="1" y="13.6" width="7" height="2.8" rx="1" fill="#C7844A"></rect></g>
-  <path d="M7.6 15 V24.5 H24.4 V15" fill="none" stroke="#C7844A" stroke-width="3" stroke-linejoin="round"></path>
-  <g transform="rotate(-35 24 15)"><rect x="24" y="13.6" width="7" height="2.8" rx="1" fill="#C7844A"></rect></g>
-  <polygon points="16,1.5 17.3,4.7 20.5,6 17.3,7.3 16,10.5 14.7,7.3 11.5,6 14.7,4.7" fill="#C7844A"></polygon>
-  <polygon points="23,1.5 23.7,3.3 25.5,4 23.7,4.7 23,6.5 22.3,4.7 20.5,4 22.3,3.3" fill="#C7844A"></polygon>
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+  <rect width="32" height="32" rx="6" fill="#0C0A08"/>
+  <g transform="rotate(35 8 15)"><rect x="1" y="13.8" width="7" height="2.2" rx="0.8" fill="#C7844A"/></g>
+  <path d="M7.6 15 V24.5 H24.4 V15" fill="none" stroke="#C7844A" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+  <g transform="rotate(-35 24 15)"><rect x="24" y="13.8" width="7" height="2.2" rx="0.8" fill="#C7844A"/></g>
+  <polygon points="16,1.5 17.3,4.7 20.5,6 17.3,7.3 16,10.5 14.7,7.3 11.5,6 14.7,4.7" fill="#C7844A"/>
 </svg>

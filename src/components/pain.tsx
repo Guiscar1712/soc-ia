@@ -66,7 +66,7 @@ export function Pain() {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="mb-12 md:mb-16 max-w-3xl">
-          <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl leading-[1.05] tracking-[-0.02em] text-paper text-balance">
+          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl leading-[1.05] tracking-[-0.02em] text-paper text-balance">
             O seu escritório cresceu. A operação acompanhou?
           </h2>
           <p className="mt-6 text-lg text-paper/60 max-w-2xl">
@@ -81,7 +81,7 @@ export function Pain() {
             <CardSticky key={role.title} index={index} className="mb-6">
               <div
                 className={cn(
-                  "rounded-2xl border border-line p-8 md:p-12 min-h-[220px] md:min-h-[280px] flex flex-col justify-between",
+                  "rounded-[var(--radius-card)] border border-line p-8 md:p-12 min-h-[220px] md:min-h-[280px] flex flex-col justify-between",
                   index % 2 === 0 ? "bg-surface" : "bg-surface-2"
                 )}
               >
@@ -90,7 +90,7 @@ export function Pain() {
                   {String(ROLES.length).padStart(2, "0")}
                 </div>
                 <div>
-                  <h3 className="font-serif text-3xl md:text-5xl leading-[1.05] tracking-[-0.02em] text-paper max-w-xl">
+                  <h3 className="font-display text-3xl md:text-5xl leading-[1.05] tracking-[-0.02em] text-paper max-w-xl">
                     {role.title}
                   </h3>
                   <p className="mt-6 text-base md:text-lg text-paper/65 max-w-lg leading-relaxed">
@@ -102,7 +102,7 @@ export function Pain() {
           ))}
         </ContainerScroll>
 
-        <p className="mt-20 md:mt-28 max-w-3xl font-serif text-2xl md:text-4xl leading-[1.15] tracking-[-0.015em] text-paper">
+        <p className="mt-20 md:mt-28 max-w-3xl font-display text-2xl md:text-4xl leading-[1.15] tracking-[-0.015em] text-paper">
           O problema não é apenas falta de tempo. É uma operação que ainda
           depende demais de você.
         </p>

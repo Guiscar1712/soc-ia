@@ -12,7 +12,7 @@ export function About() {
     <section id="o-que-e" className="w-full bg-background py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="max-w-3xl">
-          <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl leading-[1.05] tracking-[-0.02em] text-paper text-balance">
+          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl leading-[1.05] tracking-[-0.02em] text-paper text-balance">
             Não é um curso. É estrutura pronta para adaptar e aplicar.
           </h2>
           <div className="mt-8 max-w-xl space-y-5 text-lg md:text-xl leading-relaxed text-paper/70">
@@ -31,14 +31,14 @@ export function About() {
               eles.
             </p>
           </div>
-          <p className="mt-10 max-w-xl font-serif text-2xl md:text-3xl leading-[1.2] text-paper">
+          <p className="mt-10 max-w-xl font-display text-2xl md:text-3xl leading-[1.2] text-paper">
             Sem aulas. Sem conteúdo para acumular. Sem esperar acompanhamento
             individual.
           </p>
         </div>
 
         <div className="mt-20 md:mt-28 max-w-3xl border-t border-line pt-14 md:pt-16">
-          <h3 className="font-serif text-2xl md:text-4xl leading-[1.1] tracking-[-0.02em] text-paper text-balance">
+          <h3 className="font-display text-2xl md:text-4xl leading-[1.1] tracking-[-0.02em] text-paper text-balance">
             Mais do que documentos prontos.
           </h3>
           <div className="mt-6 max-w-xl space-y-4 text-lg leading-relaxed text-paper/70">
@@ -49,7 +49,7 @@ export function About() {
               realidade do seu escritório.
             </p>
           </div>
-          <p className="mt-8 max-w-xl font-serif text-xl md:text-2xl leading-[1.25] text-paper">
+          <p className="mt-8 max-w-xl font-display text-xl md:text-2xl leading-[1.25] text-paper">
             Você recebe o que já existe e uma forma mais inteligente de
             construir o que ainda falta.
           </p>
@@ -63,7 +63,7 @@ export function Audience() {
   return (
     <section id="para-quem" className="w-full bg-background py-24 md:py-28">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <h2 className="font-serif text-3xl md:text-5xl leading-[1.05] tracking-[-0.02em] text-paper max-w-3xl text-balance">
+        <h2 className="font-display text-3xl md:text-5xl leading-[1.05] tracking-[-0.02em] text-paper max-w-3xl text-balance">
           Para quem está pronta para tirar a gestão da cabeça e colocar na
           operação.
         </h2>

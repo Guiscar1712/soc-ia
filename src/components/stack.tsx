@@ -68,7 +68,7 @@ export function Stack() {
     <section id="stack" className="w-full bg-background py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="mb-14 md:mb-20 max-w-3xl">
-          <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl leading-[1.05] tracking-[-0.02em] text-paper text-balance">
+          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl leading-[1.05] tracking-[-0.02em] text-paper text-balance">
             Você recebe o que já está pronto e a inteligência para criar o que
             ainda falta.
           </h2>
@@ -90,7 +90,7 @@ export function Stack() {
                   aria-expanded={active}
                   aria-controls="stack-panel"
                   className={cn(
-                    "w-full text-left rounded-2xl border border-line px-5 py-5 md:px-6 md:py-6 group cursor-pointer select-none",
+                    "w-full text-left rounded-[var(--radius-card)] border border-line px-5 py-5 md:px-6 md:py-6 group cursor-pointer select-none",
                     "transition-all hover:border-accent/40 hover:bg-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40",
                     active
                       ? "bg-surface border-accent/50 shadow-[0_0_0_1px_rgba(199,132,74,0.2)]"
@@ -112,7 +112,7 @@ export function Stack() {
                       <div className="flex items-baseline justify-between gap-4">
                         <h3
                           className={cn(
-                            "font-serif text-2xl md:text-3xl leading-tight tracking-[-0.015em] transition-colors",
+                            "font-display text-2xl md:text-3xl leading-tight tracking-[-0.015em] transition-colors",
                             active
                               ? "text-paper"
                               : "text-paper/50 group-hover:text-paper/85"
@@ -122,7 +122,7 @@ export function Stack() {
                         </h3>
                         <span
                           className={cn(
-                            "shrink-0 text-[11px] uppercase tracking-[0.16em] transition-colors",
+                            "shrink-0 text-[11px] font-mono uppercase tracking-[0.16em] transition-colors",
                             active
                               ? "text-accent"
                               : "text-muted/60 group-hover:text-muted"
@@ -162,7 +162,7 @@ export function Stack() {
               id="stack-panel"
               role="region"
               aria-live="polite"
-              className="relative min-h-[400px] md:min-h-[520px] rounded-2xl bg-surface border border-line overflow-hidden"
+              className="relative min-h-[400px] md:min-h-[520px] rounded-[var(--radius-card)] bg-surface border border-line overflow-hidden"
             >
               <AnimatePresence mode="wait">
                 <motion.div
@@ -173,7 +173,7 @@ export function Stack() {
                   transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                   className="absolute inset-0 p-8 md:p-10 flex flex-col justify-between"
                 >
-                  <div className="flex items-center justify-between text-[10px] uppercase tracking-[0.22em] text-muted">
+                  <div className="flex items-center justify-between text-[10px] font-mono uppercase tracking-[0.22em] text-muted">
                     <span>Bloco {FEATURES[current].step}</span>
                     <span>{FEATURES[current].title}</span>
                   </div>
@@ -190,14 +190,14 @@ export function Stack() {
                         <span className="text-[11px] font-mono text-muted tabular-nums">
                           {String(i + 1).padStart(2, "0")}
                         </span>
-                        <span className="font-serif text-xl md:text-2xl text-paper leading-tight">
+                        <span className="font-display text-xl md:text-2xl text-paper leading-tight">
                           {b}
                         </span>
                       </motion.li>
                     ))}
                   </ul>
 
-                  <div className="flex items-center justify-between text-[10px] uppercase tracking-[0.22em] text-muted">
+                  <div className="flex items-center justify-between text-[10px] font-mono uppercase tracking-[0.22em] text-muted">
                     <span>
                       {current === 3
                         ? "Configurar · Usar no Claude"

@@ -1,27 +1,26 @@
 @import "tailwindcss";
 
 :root {
-  /* LexHub Tech — preto + bronze */
+  /* Caixa Preta SÓC.IA — guia de design v1.0 */
   --ink: #0c0a08;
-  --ink-2: #171410;
-  --ink-3: #211c16;
+  --surface: #131110;
+  --surface-2: #1a1714;
   --bronze: #c7844a;
-  --bronze-2: #d69860;
-  --on-ink: #ede8e1;
-  --on-ink-dim: #9a9187;
-  --rule: hsla(35, 25%, 91%, 0.1);
+  --bronze-2: #d9a272;
+  --cream: #ede8e1;
+  --warm-gray: #7d6f61;
+  --line: #2a2521;
+  --alert: #c75442;
 
   --background: var(--ink);
-  --foreground: var(--on-ink);
-  --muted: var(--on-ink-dim);
-  --muted-bg: #120f0c;
-  --line: var(--rule);
+  --foreground: var(--cream);
+  --muted: var(--warm-gray);
+  --muted-bg: var(--surface);
   --accent: var(--bronze);
   --accent-fg: var(--ink);
-  --surface: var(--ink-2);
-  --surface-2: var(--ink-3);
-  --radius-card: 1.25rem;
-  --radius-soft: 1rem;
+  --radius-card: 0.5rem;
+  --radius-soft: 0.375rem;
+  --radius-btn: 0.375rem;
 }
 
 @theme inline {
@@ -33,34 +32,41 @@
   --color-accent: var(--accent);
   --color-accent-fg: var(--accent-fg);
   --color-ink: var(--ink);
-  --color-ink-2: var(--ink-2);
-  --color-ink-3: var(--ink-3);
-  --color-paper: var(--on-ink);
-  --color-paper-dim: var(--on-ink-dim);
+  --color-paper: var(--cream);
+  --color-paper-dim: var(--warm-gray);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
   --color-bronze: var(--bronze);
   --color-bronze-2: var(--bronze-2);
+  --color-alert: var(--alert);
   --radius-card: var(--radius-card);
   --radius-soft: var(--radius-soft);
+  --radius-btn: var(--radius-btn);
 
-  --font-sans: var(--font-outfit);
-  --font-serif: var(--font-fraunces);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-outfit);
+  --font-mono: var(--font-jetbrains);
 }
 
 html,
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-outfit), system-ui, sans-serif;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 300;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
+.font-display {
+  font-family: var(--font-outfit), system-ui, sans-serif;
+  font-weight: 500;
+}
+
 .font-serif {
-  font-family: var(--font-fraunces), Georgia, serif;
-  font-optical-sizing: auto;
+  /* alias legado → Outfit (títulos oficiais) */
+  font-family: var(--font-outfit), system-ui, sans-serif;
+  font-weight: 500;
 }
 
 ::selection {
