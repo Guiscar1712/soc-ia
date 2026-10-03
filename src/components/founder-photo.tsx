@@ -44,8 +44,14 @@ export function FounderPhoto() {
               carregar tudo sozinho.
             </p>
           </div>
-          <div className="mt-9">
+          <div className="mt-9 flex flex-col items-start gap-4">
             <Cta />
+            <a
+              href="/links"
+              className="text-sm text-paper/60 underline decoration-paper/25 underline-offset-4 transition hover:text-paper hover:decoration-paper"
+            >
+              Linktree
+            </a>
           </div>
         </div>
       </div>
