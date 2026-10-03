@@ -20,7 +20,7 @@ export function Closing() {
           </p>
           <p className="mt-10 max-w-3xl font-display text-xl md:text-2xl leading-[1.3] text-paper/90">
             Sistemas criam padrão. Organização cria clareza. Crescimento cria
-            direção. IA cria alavancagem.
+            direção. Método cria alavancagem.
           </p>
           <a
             href="#oferta"

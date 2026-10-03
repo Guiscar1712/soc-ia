@@ -15,9 +15,9 @@ const ROWS: { feature: string; antes: string; depois: string }[] = [
     depois: "Mais clareza para documentar e delegar",
   },
   {
-    feature: "Uso de IA",
-    antes: "Pontual e improvisado",
-    depois: "Agentes prontos para configurar e usar no Claude",
+    feature: "Método",
+    antes: "Cada demanda depende de improviso",
+    depois: "Métodos de gestão e skills prontos para aplicar",
   },
   {
     feature: "Padronização",

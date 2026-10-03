@@ -15,8 +15,8 @@ const BULLETS = [
     body: "Organize equipe, funções, reuniões, atendimento e operação sem criar tudo do zero.",
   },
   {
-    title: "Agentes de IA para o escritório",
-    body: "Configure inteligências que ajudam a criar processos, estruturar a equipe e organizar a gestão.",
+    title: "Métodos de gestão e skills",
+    body: "Aplique formas de criar processos, estruturar a equipe e conduzir a rotina do escritório.",
   },
   {
     title: "Menos operação presa em você",
@@ -99,8 +99,8 @@ export function Hero() {
             }
             className="mt-6 md:mt-8 max-w-2xl text-lg font-light leading-[1.6] text-paper/75"
           >
-            Tenha acesso aos procedimentos, ferramentas editáveis e agentes de
-            IA desenvolvidos a partir da operação de um escritório real,
+            Tenha acesso aos procedimentos, ferramentas editáveis, métodos de
+            gestão e skills desenvolvidos a partir da operação de um escritório real,
             prontos para adaptar, organizar e aplicar na sua rotina. Sem aulas,
             sem consultoria individual e sem começar do zero.
           </motion.p>

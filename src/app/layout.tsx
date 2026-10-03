@@ -21,10 +21,9 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title:
-    "Caixa Preta SÓC.IA — Procedimentos, ferramentas e agentes de IA para o escritório",
+  title: "Caixa Preta SÓC.IA | Tire o escritório da sua cabeça",
   description:
-    "Abra a caixa-preta de um escritório estruturado e tenha acesso aos procedimentos, ferramentas e agentes de IA que ajudam a transformar rotina em gestão.",
+    "POPs, cargos, roteiros e instruções para a IA, prontos para o seu escritório funcionar sem depender de você em cada detalhe. Entre na lista.",
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
@@ -34,9 +33,9 @@ export const metadata: Metadata = {
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
   },
   openGraph: {
-    title: "Caixa Preta SÓC.IA",
+    title: "Caixa Preta SÓC.IA | Tire o escritório da sua cabeça",
     description:
-      "Abra a caixa-preta de um escritório estruturado e tenha acesso aos procedimentos, ferramentas e agentes de IA que ajudam a transformar rotina em gestão.",
+      "Processos, equipe e IA organizados e prontos para usar no seu escritório.",
     images: [
       {
         url: "/og.png",
@@ -50,9 +49,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Caixa Preta SÓC.IA",
+    title: "Caixa Preta SÓC.IA | Tire o escritório da sua cabeça",
     description:
-      "Procedimentos, ferramentas e agentes de IA para transformar rotina em gestão.",
+      "Processos, equipe e IA organizados e prontos para usar no seu escritório.",
     images: ["/og.png"],
   },
 };

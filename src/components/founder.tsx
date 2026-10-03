@@ -132,8 +132,8 @@ export function Founder() {
                 um escritório de advocacia todos os dias.
               </p>
               <p>
-                Eu reuni procedimentos, modelos, ferramentas e estruturas de IA
-                criadas ou utilizadas na operação real do meu escritório para
+                Eu reuni procedimentos, modelos, ferramentas, métodos de gestão
+                e skills criados ou utilizados na operação real do meu escritório para
                 que você possa adaptar tudo à sua realidade, sem passar meses
                 tentando organizar o que já poderia estar pronto.
               </p>

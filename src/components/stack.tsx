@@ -50,13 +50,13 @@ const FEATURES: Feature[] = [
   },
   {
     step: "04",
-    title: "Agentes SÓC.IA",
+    title: "Métodos e skills",
     content:
-      "Agentes de IA desenvolvidos para a gestão do escritório. Cada um inclui as instruções e os comandos necessários para configuração e utilização no Claude. Criador de Processos: estrutura fluxo, POP e checklist. Estruturação de Equipe: cargos, organograma e delegação. Gestão do Escritório: prioridades, reuniões e planos de ação.",
+      "Métodos de gestão e skills para a operação do escritório. Criação de processos: fluxo, POP e checklist. Estruturação de equipe: cargos, organograma e delegação. Gestão do escritório: prioridades, reuniões e planos de ação.",
     bullets: [
-      "Agente Criador de Processos",
-      "Agente de Estruturação de Equipe",
-      "Agente de Gestão do Escritório",
+      "Skill de criação de processos",
+      "Skill de estruturação de equipe",
+      "Método de gestão do escritório",
     ],
   },
 ];
@@ -69,12 +69,12 @@ export function Stack() {
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="mb-14 md:mb-20 max-w-3xl">
           <h2 className="font-display text-3xl md:text-5xl lg:text-6xl leading-[1.05] tracking-[-0.02em] text-paper text-balance">
-            Você recebe o que já está pronto e a inteligência para criar o que
-            ainda falta.
+            Você recebe o que já está pronto e o método para criar o que ainda
+            falta.
           </h2>
           <p className="mt-6 text-lg text-paper/60 max-w-xl">
-            Dois grandes blocos de entrega, pensados para transformar rotina em
-            estrutura.
+            Procedimentos, ferramentas, métodos de gestão e skills para
+            transformar rotina em estrutura.
           </p>
         </div>
 
@@ -200,7 +200,7 @@ export function Stack() {
                   <div className="flex items-center justify-between text-[10px] font-mono uppercase tracking-[0.22em] text-muted">
                     <span>
                       {current === 3
-                        ? "Configurar · Usar no Claude"
+                        ? "Ler · Adaptar · Aplicar"
                         : "Baixar · Editar · Aplicar"}
                     </span>
                     <span className="tabular-nums">

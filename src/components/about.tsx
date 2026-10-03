@@ -2,7 +2,7 @@ const AUDIENCE_POINTS = [
   "querem organizar processos e rotinas;",
   "precisam documentar o que hoje depende da memória;",
   "desejam dar mais clareza à equipe;",
-  "querem usar IA de forma prática na gestão;",
+  "querem aplicar métodos de gestão e skills na rotina;",
   "conseguem adaptar e implementar os materiais sem acompanhamento individual;",
   "não querem começar cada processo do zero.",
 ];
@@ -17,18 +17,17 @@ export function About() {
           </h2>
           <div className="mt-8 max-w-xl space-y-5 text-lg md:text-xl leading-relaxed text-paper/70">
             <p>
-              A Caixa Preta SÓC.IA é um pack digital de gestão e inteligência
-              artificial para escritórios de advocacia.
+              A Caixa Preta SÓC.IA é um pack digital de gestão para escritórios
+              de advocacia.
             </p>
             <p>
               Você recebe procedimentos, modelos e ferramentas editáveis, além
-              de agentes de IA que ajudam a adaptar os materiais e criar novas
-              estruturas conforme a realidade da sua operação.
+              de métodos de gestão e skills para adaptar os materiais e criar
+              novas estruturas conforme a realidade da sua operação.
             </p>
             <p>
               A maioria dos packs entrega arquivos estáticos. A Caixa Preta
-              entrega materiais prontos e inteligência para trabalhar sobre
-              eles.
+              entrega materiais prontos e um método para trabalhar sobre eles.
             </p>
           </div>
           <p className="mt-10 max-w-xl font-display text-2xl md:text-3xl leading-[1.2] text-paper">
@@ -44,14 +43,14 @@ export function About() {
           <div className="mt-6 max-w-xl space-y-4 text-lg leading-relaxed text-paper/70">
             <p>Um pack comum entrega um arquivo para você preencher.</p>
             <p>
-              A Caixa Preta SÓC.IA entrega o arquivo e a inteligência necessária
-              para adaptar, melhorar e criar novas estruturas conforme a
-              realidade do seu escritório.
+              A Caixa Preta SÓC.IA entrega o arquivo e o método para adaptar,
+              melhorar e criar novas estruturas conforme a realidade do seu
+              escritório.
             </p>
           </div>
           <p className="mt-8 max-w-xl font-display text-xl md:text-2xl leading-[1.25] text-paper">
-            Você recebe o que já existe e uma forma mais inteligente de
-            construir o que ainda falta.
+            Você recebe o que já existe e um método para construir o que ainda
+            falta.
           </p>
         </div>
       </div>

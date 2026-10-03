@@ -7,5 +7,7 @@ export const assets = {
   // poster leve fica no Vercel até subir no bucket
   heroPoster: "/images/hero-poster.jpg",
   nathalia: `${CDN}/nathalia-fava.jpg`,
+  // foto oficial do metodosocia.com.br
+  nathaliaPortrait: "/images/nathalia-fava-metodo.jpg",
   nathaliaCard: `${CDN}/nathalia-fava-card.jpg`,
 } as const;
