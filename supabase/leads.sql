@@ -53,3 +53,11 @@ $$;
 
 revoke all on function public.submit_lead(text, text, text) from public, anon, authenticated;
 grant execute on function public.submit_lead(text, text, text) to service_role;
+
+do $$
+begin
+  if exists (select 1 from pg_roles where rolname = 'leads_ingest') then
+    grant execute on function public.submit_lead(text, text, text) to leads_ingest;
+    revoke all on table public.leads from leads_ingest;
+  end if;
+end $$;

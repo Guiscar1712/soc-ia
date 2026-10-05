@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { Jost, Nunito_Sans } from "next/font/google";
 import { DotsBackground, OpenSheet, Sheet } from "./links-client";
 import { LexMark } from "./lex-mark";
@@ -97,10 +96,8 @@ export default function LinksPage() {
                 <Image src="/links/caixa-preta-mark.png" alt="" width={38} height={34} />
               </div>
               <div>
-                <h3>
-                  Caixa Preta SÓC.IA <span className="soon">Em breve</span>
-                </h3>
-                <p>A estrutura que eu uso, pronta para você instalar sozinha.</p>
+                <h3>Caixa Preta SÓC.IA</h3>
+                <p>Você instala sozinha, no seu ritmo.</p>
                 <OpenSheet target="d-caixa">Ver detalhes →</OpenSheet>
               </div>
             </article>
@@ -217,26 +214,18 @@ export default function LinksPage() {
           </h3>
         </div>
         <div className="sheet-body">
-          <p>A estrutura que eu uso no meu escritório, pronta para você adaptar e instalar sozinha no seu.</p>
+          <p>
+            A Caixa Preta SÓC.IA é a do meu escritório, aberta. Você instala sozinha, no seu ritmo.
+          </p>
           <ul>
-            <li>Agentes de IA prontos para configurar</li>
-            <li>POPs, checklists e fluxos</li>
-            <li>Prompts e modelos editáveis</li>
-            <li>Materiais de gestão e IA</li>
+            <li>7 skills do Claude, cada uma com o passo a passo de instalação</li>
+            <li>5 POPs, checklist-base de documentos e dicionário do cliente</li>
+            <li>Modelos em Word editável e PDF</li>
+            <li>Guia de Estruturação de Cargos e 4 modelos de referência</li>
           </ul>
-          <div className="stack-btn">
-            <a
-              className="btn btn-solid"
-              href={wa("Oi, Nathalia! Quero entrar na lista de espera da Caixa Preta SÓC.IA.")}
-              target="_blank"
-              rel="noopener"
-            >
-              Entrar na lista de espera
-            </a>
-            <Link className="link-quiet" href="/">
-              Ver tudo o que vem na caixa
-            </Link>
-          </div>
+          <a className="btn btn-solid" href="/">
+            Entrar na lista de espera
+          </a>
         </div>
       </Sheet>
     </div>

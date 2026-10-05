@@ -25,33 +25,20 @@ export function FounderPhoto() {
           />
         </motion.div>
         <div className="md:col-span-7">
-          <Eyebrow>Quem está por trás · Nathalia Fava</Eyebrow>
+          <Eyebrow>Quem fez</Eyebrow>
           <h2 className="font-display text-4xl leading-[1.05] tracking-[-0.025em] text-paper text-balance md:text-6xl">
-            Tudo começa num <span className="text-accent">ponto.</span>
+            Oi, me chamo <span className="text-accent">Nathalia.</span>
           </h2>
           <div className="mt-8 max-w-xl space-y-5 text-lg leading-relaxed text-paper/70">
+            <p>Sou advogada, empresária e sócia de 3 empresas.</p>
             <p>
-              Criei a Caixa Preta para advogados que estão cansados de ser o
-              processo do próprio escritório.
-            </p>
-            <p>
-              Não é curso de tecnologia. É o jeito de trabalhar do escritório
-              colocado em POPs, cargos, roteiros e instruções que a IA consegue
-              seguir.
-            </p>
-            <p className="font-display text-xl text-paper">
-              Você não precisa virar especialista em IA. Precisa parar de
-              carregar tudo sozinho.
+              Tudo o que está na Caixa Preta SÓC.IA eu uso no meu escritório. Não
+              é teoria: é o jeito que a gente trabalha, escrito para você adaptar
+              ao seu.
             </p>
           </div>
-          <div className="mt-9 flex flex-col items-start gap-4">
+          <div className="mt-9">
             <Cta />
-            <a
-              href="/links"
-              className="text-sm text-paper/60 underline decoration-paper/25 underline-offset-4 transition hover:text-paper hover:decoration-paper"
-            >
-              Linktree
-            </a>
           </div>
         </div>
       </div>

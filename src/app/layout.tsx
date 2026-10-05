@@ -23,7 +23,7 @@ const jetbrains = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Caixa Preta SÓC.IA | Tire o escritório da sua cabeça",
   description:
-    "POPs, cargos, roteiros e instruções para a IA, prontos para o seu escritório funcionar sem depender de você em cada detalhe. Entre na lista.",
+    "7 skills do Claude e modelos editáveis para tirar o jeito de trabalhar do seu escritório da sua cabeça.",
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Caixa Preta SÓC.IA | Tire o escritório da sua cabeça",
     description:
-      "Processos, equipe e IA organizados e prontos para usar no seu escritório.",
+      "7 skills do Claude, do contrato ao pós-venda, e os modelos do escritório para adaptar.",
     images: [
       {
         url: "/og.png",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Caixa Preta SÓC.IA | Tire o escritório da sua cabeça",
     description:
-      "Processos, equipe e IA organizados e prontos para usar no seu escritório.",
+      "7 skills do Claude, do contrato ao pós-venda, e os modelos do escritório para adaptar.",
     images: ["/og.png"],
   },
 };

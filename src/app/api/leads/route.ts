@@ -1,5 +1,7 @@
 import { createHmac, randomBytes, timingSafeEqual } from "node:crypto";
 import { NextResponse } from "next/server";
+import { mailConfigured, notifyLead } from "@/lib/lead-mail";
+import { leadsConfigured, submitLead } from "@/lib/leads-db";
 
 export const dynamic = "force-dynamic";
 
@@ -85,11 +87,7 @@ function browserRequest(request: Request) {
 }
 
 function signingKey() {
-  return (
-    process.env.LEADS_SIGNING_SECRET ||
-    process.env.SUPABASE_SERVICE_ROLE_KEY ||
-    ""
-  );
+  return process.env.LEADS_SIGNING_SECRET || "";
 }
 
 function sign(payload: string) {
@@ -148,19 +146,6 @@ function normalizePhone(value: unknown) {
 
 function validPhone(digits: string) {
   return /^[1-9]\d(?:[2-5]\d{7}|9\d{8})$/.test(digits);
-}
-
-function supabaseOrigin() {
-  const raw = process.env.SUPABASE_URL;
-  if (!raw) return null;
-  try {
-    const url = new URL(raw);
-    if (url.protocol !== "https:" || url.username || url.password) return null;
-    if (url.pathname !== "/" || url.search || url.hash) return null;
-    return url.origin;
-  } catch {
-    return null;
-  }
 }
 
 export async function GET(request: Request) {
@@ -273,31 +258,22 @@ export async function POST(request: Request) {
     return json({ ok: false, error: "Informe um telefone válido." }, 400);
   }
 
-  const origin = supabaseOrigin();
-  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (!origin || !serviceKey) {
+  if (!leadsConfigured()) {
     return json({ ok: false, error: "O formulário está temporariamente indisponível." }, 503);
   }
 
-  let response: Response;
   try {
-    response = await fetch(`${origin}/rest/v1/rpc/submit_lead`, {
-      method: "POST",
-      headers: {
-        apikey: serviceKey,
-        Authorization: `Bearer ${serviceKey}`,
-        "Content-Type": "application/json",
-        Prefer: "return=minimal",
-      },
-      body: JSON.stringify({ p_name: name, p_email: email, p_phone: phone }),
-      cache: "no-store",
-      signal: AbortSignal.timeout(8000),
-    });
+    const saved = await submitLead(name, email, phone);
+    if (!saved) {
+      return json({ ok: false, error: "Não foi possível enviar. Tente de novo." }, 502);
+    }
+    if (mailConfigured()) {
+      const mailed = await notifyLead({ name, email, phone });
+      if (!mailed) {
+        return json({ ok: false, error: "Não foi possível enviar. Tente de novo." }, 502);
+      }
+    }
   } catch {
-    return json({ ok: false, error: "Não foi possível enviar. Tente de novo." }, 502);
-  }
-
-  if (!response.ok && response.status !== 409) {
     return json({ ok: false, error: "Não foi possível enviar. Tente de novo." }, 502);
   }
 

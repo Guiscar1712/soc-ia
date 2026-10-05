@@ -4,17 +4,17 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform, type MotionValue } from "motion/react";
 import { DotField } from "@/components/dots/dot-field";
 import { cluster, cube, spread } from "@/components/dots/shapes";
-import { Cta, Eyebrow, Shout } from "@/components/ui";
+import { Cta, Eyebrow } from "@/components/ui";
 
 const FRAGMENTS = [
-  { text: "cadê a procuração?", x: "8%", y: "22%" },
-  { text: "cliente no WhatsApp", x: "62%", y: "16%" },
-  { text: "prazo amanhã", x: "78%", y: "38%" },
-  { text: "o estagiário perguntou de novo", x: "14%", y: "68%", desktop: true },
-  { text: "me lembra como faz?", x: "58%", y: "74%" },
-  { text: "contrato sem assinatura", x: "34%", y: "30%", desktop: true },
-  { text: "audiência às 14h", x: "70%", y: "58%", desktop: true },
-  { text: "quem ligou pro cliente?", x: "6%", y: "46%" },
+  { text: "cadê o modelo?", x: "8%", y: "22%" },
+  { text: "só você sabe responder", x: "62%", y: "16%" },
+  { text: "a inicial espera", x: "78%", y: "38%" },
+  { text: "a estagiária perguntou de novo", x: "14%", y: "68%", desktop: true },
+  { text: "onde fica o modelo?", x: "58%", y: "74%" },
+  { text: "o contrato saiu diferente", x: "34%", y: "30%", desktop: true },
+  { text: "o processo está com você", x: "70%", y: "58%", desktop: true },
+  { text: "cadê a procuração?", x: "6%", y: "46%" },
 ];
 
 function buildShapes(w: number, h: number, mobile: boolean) {
@@ -66,7 +66,7 @@ export function StoryIntro() {
   const boxScale = useTransform(s, range(0.72, 0.85, 0.92, 1));
 
   return (
-    <section id="top" ref={ref} className="relative h-[400vh] bg-ink md:h-[520vh]">
+    <section id="top" ref={ref} className="relative h-[400vh] bg-background md:h-[520vh]">
       <div className="sticky top-0 h-[100dvh] overflow-hidden">
         <DotField build={buildShapes} progress={shape} className="absolute inset-0 h-full w-full" />
         <div
@@ -94,8 +94,8 @@ export function StoryIntro() {
               Esse é o problema.
             </p>
             <p className="mt-7 max-w-xl text-lg leading-relaxed text-paper/80">
-              Se você para, o escritório para. A Caixa Preta tira o seu jeito de
-              trabalhar da sua cabeça e coloca no papel, na equipe e na IA.
+              Se você para, o escritório para. A Caixa Preta SÓC.IA tira o seu
+              jeito de trabalhar da sua cabeça e coloca no papel, na equipe e na IA.
             </p>
             <div className="mt-9">
               <Cta />
@@ -116,11 +116,14 @@ export function StoryIntro() {
         >
           <div className="max-w-3xl rounded-[var(--radius-card)] bg-ink/85 px-6 py-8 text-center shadow-[0_0_80px_40px_rgba(12,10,8,0.85)] md:px-10">
             <h2 className="font-display text-4xl leading-[1.05] tracking-[-0.025em] text-paper text-balance md:text-6xl">
-              Cada ponto é algo que{" "}
-              <span className="text-accent">só você</span> sabe resolver.
+              Tudo passa por <span className="text-accent">você.</span>
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-paper/75">
-              Prazo. Cliente cobrando. Estagiário perguntando pela terceira vez.
+              O cliente pergunta do processo e só você sabe responder. A estagiária
+              pergunta pela terceira vez onde fica o modelo. A inicial espera você
+              ter tempo. O contrato sai de um jeito diferente a cada vez.
+            </p>
+            <p className="mx-auto mt-4 max-w-xl font-display text-xl leading-snug text-paper">
               Você não tem um escritório. Você tem um gargalo, e o gargalo é você.
             </p>
           </div>
@@ -131,11 +134,14 @@ export function StoryIntro() {
           style={{ ...box, scale: boxScale }}
           className="absolute inset-x-0 bottom-0 z-10 px-6 pb-16 text-center md:pb-14"
         >
-          <Shout size="md">
-            Tudo cabe numa <span className="text-accent">caixa.</span>
-          </Shout>
+          <h2 className="mx-auto max-w-4xl font-display text-4xl leading-[1.05] tracking-[-0.025em] text-paper text-balance md:text-6xl">
+            Todo escritório que funciona tem uma{" "}
+            <span className="text-accent">caixa preta.</span>
+          </h2>
           <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-paper/75">
-            Processos, equipe e IA, organizados e prontos para usar.
+            A Caixa Preta SÓC.IA é a do meu escritório, aberta. Os processos que
+            fazem a nossa operação andar, escritos para a equipe seguir e para a IA
+            executar.
           </p>
         </motion.div>
 

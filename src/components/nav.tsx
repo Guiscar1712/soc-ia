@@ -2,15 +2,15 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ArrowRight, List, X } from "@phosphor-icons/react";
+import { List, X } from "@phosphor-icons/react";
 import { handleHashClick } from "@/lib/scroll";
 import { BrandLockup } from "@/components/brand-mark";
-import { CTA_LABEL } from "@/components/ui";
 
 const NAV_ITEMS = [
-  { label: "Como funciona", href: "#ia" },
+  { label: "Como funciona", href: "#como-funciona" },
   { label: "O que vem na caixa", href: "#caixa" },
   { label: "Quem fez", href: "#nathalia" },
+  { label: "Fila de espera", href: "#fila" },
 ];
 
 export function Nav() {
@@ -60,7 +60,7 @@ export function Nav() {
         <div className="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-12 h-16">
           {logo()}
 
-          <nav className="hidden md:flex items-center gap-9">
+          <nav className="hidden md:flex items-center gap-6 lg:gap-9">
             {NAV_ITEMS.map((item) => (
               <a
                 key={item.label}
@@ -72,14 +72,6 @@ export function Nav() {
               </a>
             ))}
           </nav>
-
-          <a
-            href="#cadastro"
-            onClick={(e) => handleHashClick(e, "#cadastro")}
-            className="hidden md:inline-flex items-center justify-center h-9 px-4 text-[13px] font-medium text-accent-fg bg-accent rounded-[var(--radius-btn)] hover:bg-bronze-2 transition"
-          >
-            {CTA_LABEL}
-          </a>
 
           <button
             type="button"
@@ -144,16 +136,6 @@ export function Nav() {
               ))}
             </nav>
 
-            <div className="shrink-0 px-6 pt-4 pb-[max(1.5rem,env(safe-area-inset-bottom))]">
-              <a
-                href="#cadastro"
-                onClick={(e) => handleHashClick(e, "#cadastro", close)}
-                className="group flex min-h-12 w-full items-center justify-center gap-2 rounded-[var(--radius-btn)] bg-accent px-6 py-3 text-sm font-medium text-accent-fg transition hover:bg-bronze-2 active:scale-[0.98]"
-              >
-                {CTA_LABEL}
-                <ArrowRight className="h-4 w-4 shrink-0" />
-              </a>
-            </div>
           </motion.div>
         )}
       </AnimatePresence>
