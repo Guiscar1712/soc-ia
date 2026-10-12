@@ -46,9 +46,15 @@ const MODULES: { n: string; name: string; body: ReactNode }[] = [
   },
   {
     n: "02",
-    name: "Ferramentas para a rotina",
+    name: "Skills para a rotina do escritório",
     body: (
       <>
+        <p>
+          Skill é uma instrução que fica salva no seu Claude: você ensina uma vez como
+          o trabalho é feito, e ele aplica sempre que a tarefa pedir, sem você repetir
+          tudo de novo. Cada uma destas aprende como o seu escritório trabalha e gera
+          a sua própria versão.
+        </p>
         <List
           items={SKILLS.map(([name, line]) => (
             <span key={name}>
