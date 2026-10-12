@@ -21,6 +21,10 @@ const PALETTE = Array.from({ length: 33 }, (_, k) => {
 });
 
 const STAGGER = 0.4;
+// Interação com o cursor: raio de alcance, empurrão máximo e suavidade da volta.
+const HOVER_RADIUS = 120;
+const HOVER_PUSH = 34;
+const HOVER_EASE = 0.12;
 
 function ease(t: number) {
   return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
@@ -51,6 +55,9 @@ export function DotField({
     let shapes: Shape[] = [];
     let delay = new Float32Array(0);
     let phase = new Float32Array(0);
+    let offX = new Float32Array(0);
+    let offY = new Float32Array(0);
+    const mouse = { x: 0, y: 0, active: false };
     let w = 0;
     let h = 0;
     let raf = 0;
@@ -78,6 +85,8 @@ export function DotField({
           delay[i] = reduced ? 0 : Math.random() * STAGGER;
           phase[i] = Math.random() * Math.PI * 2;
         }
+        offX = new Float32Array(n);
+        offY = new Float32Array(n);
       }
       shapes = next;
     };
@@ -106,12 +115,37 @@ export function DotField({
           const x = A.xy[i * 2] + (B.xy[i * 2] - A.xy[i * 2]) * k + Math.sin(time * 0.9 + phase[i]) * wob;
           const y =
             A.xy[i * 2 + 1] + (B.xy[i * 2 + 1] - A.xy[i * 2 + 1]) * k + Math.cos(time * 0.7 + phase[i] * 1.3) * wob;
-          const tone = A.tone[i] + (B.tone[i] - A.tone[i]) * k;
-          const r = A.size[i] + (B.size[i] - A.size[i]) * k;
-          ctx.globalAlpha = alpha;
+          let tone = A.tone[i] + (B.tone[i] - A.tone[i]) * k;
+          let r = A.size[i] + (B.size[i] - A.size[i]) * k;
+          let a = alpha;
+
+          // o cursor afasta os pontos próximos; eles voltam com suavidade
+          let tx = 0;
+          let ty = 0;
+          if (mouse.active) {
+            const dx = x - mouse.x;
+            const dy = y - mouse.y;
+            const d2 = dx * dx + dy * dy;
+            if (d2 < HOVER_RADIUS * HOVER_RADIUS && d2 > 0.01) {
+              const d = Math.sqrt(d2);
+              const f = (1 - d / HOVER_RADIUS) ** 2 * HOVER_PUSH;
+              tx = (dx / d) * f;
+              ty = (dy / d) * f;
+            }
+          }
+          offX[i] += (tx - offX[i]) * HOVER_EASE;
+          offY[i] += (ty - offY[i]) * HOVER_EASE;
+          const boost = Math.min(Math.hypot(offX[i], offY[i]) / HOVER_PUSH, 1);
+          if (boost > 0.01) {
+            tone += (1 - tone) * boost * 0.6;
+            r *= 1 + boost * 0.7;
+            a = Math.min(1, a + boost * 0.5);
+          }
+
+          ctx.globalAlpha = a;
           ctx.fillStyle = PALETTE[Math.round(Math.min(Math.max(tone, 0), 1) * 32)];
           ctx.beginPath();
-          ctx.arc(x, y, r, 0, Math.PI * 2);
+          ctx.arc(x + offX[i], y + offY[i], r, 0, Math.PI * 2);
           ctx.fill();
         }
         ctx.globalAlpha = 1;
@@ -122,6 +156,19 @@ export function DotField({
     const start = () => {
       if (!raf) raf = requestAnimationFrame(draw);
     };
+
+    const onPointer = (e: PointerEvent) => {
+      if (reduced || e.pointerType === "touch") return;
+      const rect = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+      mouse.active = mouse.x >= 0 && mouse.y >= 0 && mouse.x <= rect.width && mouse.y <= rect.height;
+    };
+    const onLeave = () => {
+      mouse.active = false;
+    };
+    window.addEventListener("pointermove", onPointer, { passive: true });
+    document.addEventListener("pointerleave", onLeave);
 
     const ro = new ResizeObserver(() => void resize());
     ro.observe(canvas);
@@ -134,6 +181,8 @@ export function DotField({
 
     return () => {
       token++;
+      window.removeEventListener("pointermove", onPointer);
+      document.removeEventListener("pointerleave", onLeave);
       ro.disconnect();
       io.disconnect();
       cancelAnimationFrame(raf);

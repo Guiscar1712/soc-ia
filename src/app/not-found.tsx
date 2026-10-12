@@ -32,14 +32,14 @@ export default function NotFound() {
         <div className="mt-10 flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row">
           <Link
             href="/"
-            className="group inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-[var(--radius-btn)] bg-accent px-6 py-3 text-sm font-medium text-accent-fg transition hover:bg-bronze-2 active:scale-[0.98] sm:w-auto"
+            className="group inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-[var(--radius-btn)] bg-accent px-6 py-3 text-sm font-semibold text-accent-fg transition hover:bg-bronze-2 active:scale-[0.98] sm:w-auto"
           >
             Voltar para o início
             <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5" />
           </Link>
           <Link
             href="/links"
-            className="inline-flex min-h-12 w-full items-center justify-center rounded-[var(--radius-btn)] border border-line px-6 py-3 text-sm font-medium text-paper transition hover:border-accent sm:w-auto"
+            className="inline-flex min-h-12 w-full items-center justify-center rounded-[var(--radius-btn)] border border-line px-6 py-3 text-sm font-normal text-paper transition hover:border-accent sm:w-auto"
           >
             Ver links da Nathalia
           </Link>

@@ -5,12 +5,13 @@ import { motion, AnimatePresence } from "motion/react";
 import { List, X } from "@phosphor-icons/react";
 import { handleHashClick } from "@/lib/scroll";
 import { BrandLockup } from "@/components/brand-mark";
+import { CTA_HREF } from "@/components/ui";
 
 const NAV_ITEMS = [
   { label: "Como funciona", href: "#como-funciona" },
   { label: "O que vem na caixa", href: "#caixa" },
-  { label: "Quem fez", href: "#nathalia" },
-  { label: "Fila de espera", href: "#fila" },
+  { label: "Quem criou", href: "#nathalia" },
+  { label: "Dúvidas", href: "#duvidas" },
 ];
 
 export function Nav() {
@@ -71,6 +72,14 @@ export function Nav() {
                 {item.label}
               </a>
             ))}
+            <a
+              href={CTA_HREF}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-cta relative rounded-[var(--radius-btn)] px-4 py-2 text-[13px] font-semibold text-accent-fg"
+            >
+              Quero minha Caixa Preta
+            </a>
           </nav>
 
           <button

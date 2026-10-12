@@ -2,12 +2,12 @@
 
 import Image from "next/image";
 import { motion } from "motion/react";
-import { Cta, Eyebrow } from "@/components/ui";
+import { Eyebrow } from "@/components/ui";
 import { assets } from "@/lib/assets";
 
 export function FounderPhoto() {
   return (
-    <section id="nathalia" className="bg-background py-16 md:py-32">
+    <section id="nathalia" className="bg-background py-12 md:py-32">
       <div className="mx-auto grid max-w-7xl items-center gap-8 px-6 md:grid-cols-12 md:gap-16 md:px-12">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -25,20 +25,19 @@ export function FounderPhoto() {
           />
         </motion.div>
         <div className="md:col-span-7">
-          <Eyebrow>Quem fez</Eyebrow>
+          <Eyebrow>Quem criou</Eyebrow>
           <h2 className="font-display text-4xl leading-[1.05] tracking-[-0.025em] text-paper text-balance md:text-6xl">
-            Oi, me chamo <span className="text-accent">Nathalia.</span>
+            Eu também tenho escritório e <span className="text-accent">cliente esperando.</span>
           </h2>
           <div className="mt-8 max-w-xl space-y-5 text-lg leading-relaxed text-paper/70">
-            <p>Sou advogada, empresária e sócia de 3 empresas.</p>
             <p>
-              Tudo o que está na Caixa Preta SÓC.IA eu uso no meu escritório. Não
-              é teoria: é o jeito que a gente trabalha, escrito para você adaptar
-              ao seu.
+              Sou Nathalia Fava, advogada e empresária. No Fava & Vitorino, gestão e
+              IA fazem parte da operação.
             </p>
-          </div>
-          <div className="mt-9">
-            <Cta />
+            <p>
+              A Caixa Preta reúne ferramentas e processos construídos a partir dessa
+              experiência para você adaptar ao seu escritório.
+            </p>
           </div>
         </div>
       </div>

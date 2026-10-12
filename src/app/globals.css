@@ -63,6 +63,11 @@ body {
   font-weight: 500;
 }
 
+/* Mono só aparece em rótulos pequenos com tracking: 300 some no fundo escuro. */
+.font-mono {
+  font-weight: 400;
+}
+
 .font-serif {
   /* alias legado → Outfit (títulos oficiais) */
   font-family: var(--font-outfit), system-ui, sans-serif;
@@ -72,4 +77,58 @@ body {
 ::selection {
   background: var(--accent);
   color: var(--accent-fg);
+}
+
+/* Botão de compra: bronze em degradê, brilho em volta e um reflexo que passa. */
+/* Posição fica a cargo de quem usa (relative ou fixed). */
+.btn-cta {
+  overflow: hidden;
+  isolation: isolate;
+  background: linear-gradient(135deg, var(--bronze-2) 0%, var(--accent) 55%, var(--bronze) 100%);
+  box-shadow:
+    0 0 0 1px rgb(255 214 170 / 0.25) inset,
+    0 10px 30px -8px rgb(199 132 74 / 0.6),
+    0 0 40px -6px rgb(199 132 74 / 0.45);
+  transition:
+    transform 160ms cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 200ms ease,
+    filter 200ms ease,
+    opacity 200ms cubic-bezier(0.23, 1, 0.32, 1),
+    translate 200ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* hover só com mouse: no toque, o "levantar" ficaria preso depois do tap */
+@media (hover: hover) and (pointer: fine) {
+  .btn-cta:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.08);
+    box-shadow:
+      0 0 0 1px rgb(255 214 170 / 0.35) inset,
+      0 16px 40px -8px rgb(199 132 74 / 0.75),
+      0 0 60px -4px rgb(199 132 74 / 0.6);
+  }
+}
+
+.btn-cta:active {
+  transform: scale(0.97);
+}
+
+.btn-cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(110deg, transparent 30%, rgb(255 240 220 / 0.45) 50%, transparent 70%);
+  transform: translateX(-120%);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .btn-cta::after {
+    animation: cta-shine 3.6s ease-in-out infinite;
+  }
+}
+
+@keyframes cta-shine {
+  0%, 55% { transform: translateX(-120%); }
+  100% { transform: translateX(120%); }
 }

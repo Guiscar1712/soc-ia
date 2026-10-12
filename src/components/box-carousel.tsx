@@ -1,98 +1,112 @@
-import type { ReactNode } from "react";
-import { WaitlistCard } from "@/components/ui";
+import { Fragment, type ReactNode } from "react";
+import { Accordion } from "@/components/accordion";
+import { Buy } from "@/components/ui";
 
-const SKILLS = [
-  ["Contrato e Procuração", "monta o contrato de honorários e a procuração a partir dos dados do cliente."],
-  ["Checklist de Documentos", "monta a lista de documentos de cada ação, escreve a mensagem, cobra o que falta e confere o que chegou."],
-  ["Pesquisa de Legislação", "busca a lei na fonte oficial, confere a vigência e entrega o texto com o link."],
-  ["Petição Inicial", "organiza os fatos, aponta o que falta e monta a inicial."],
-  ["Revisão de Peças", "confere a peça antes do protocolo e aponta o que corrigir."],
-  ["Comunicação Humana", "tira a cara de IA de peças e textos e escreve para o cliente em linguagem simples."],
-  ["Criador de POP", "transforma o jeito que o escritório faz algo em procedimento escrito, em PDF."],
+export const SKILLS = [
+  ["Contrato e Procuração", "defina o padrão do escritório e prepare minutas de contrato de honorários e procuração para revisão."],
+  ["Checklist de Documentos", "monte a lista para o caso e prepare a solicitação ao cliente. Você confere e envia."],
+  ["Pesquisa de Legislação", "busque dispositivos em fontes oficiais e receba links para conferir a redação e a vigência."],
+  ["Revisão de Peças", "identifique lacunas e inconsistências, com apontamentos por gravidade e sugestões de correção."],
+  ["Comunicação Humana", "prepare explicações ao cliente em linguagem simples e ajuste a redação dos seus textos."],
+  ["Criador de POP", "transforme uma rotina em procedimento com responsáveis, etapas e pontos de controle."],
 ];
 
-const FOLDERS: { n: string; name: string; body: ReactNode }[] = [
+const MATERIALS = [
+  "Mapa do caso para visualizar a jornada e onde usar cada ferramenta.",
+  "Manual do Claude para o escritório, com orientações de uso e cuidados com dados.",
+  "30 prompts para copiar e adaptar a tarefas complementares.",
+  "Como criar seu primeiro projeto, com 5 POPs de exemplo, com prompts de adaptação.",
+];
+
+function List({ items }: { items: ReactNode[] }) {
+  return (
+    <ol className="mt-4">
+      {items.map((item, i) => (
+        <li key={i} className="grid grid-cols-[1.25rem_1fr] gap-3 border-t-[0.5pt] border-line py-3">
+          <span className="font-mono text-xs text-accent">{i + 1}</span>
+          <p>{item}</p>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+const MODULES: { n: string; name: string; body: ReactNode }[] = [
   {
     n: "01",
     name: "Comece aqui",
     body: (
-      <p>Guia de início: plano, instalação, ordem de uso, sigilo e revisão humana.</p>
+      <p>
+        Boas-vindas e Guia de início para configurar os recursos, instalar a primeira
+        ferramenta e conferir os resultados.
+      </p>
     ),
   },
   {
     n: "02",
-    name: "Skills",
+    name: "Ferramentas para a rotina",
     body: (
       <>
-        <p>7 skills do Claude, cada uma com o passo a passo de instalação.</p>
-        <ol className="mt-4">
-          {SKILLS.map(([name, line], i) => (
-            <li key={name} className="grid grid-cols-[1.25rem_1fr] gap-3 border-t-[0.5pt] border-line py-3">
-              <span className="font-mono text-xs text-accent">{i + 1}</span>
-              <p>
-                <span className="text-paper">{name}: </span>
-                <span>{line}</span>
-              </p>
-            </li>
+        <List
+          items={SKILLS.map(([name, line]) => (
+            <span key={name}>
+              <span className="text-paper">{name}: </span>
+              {line}
+            </span>
           ))}
-        </ol>
-        <p className="mt-4 text-sm">
-          A skill Pesquisa de Legislação precisa da busca na web ligada no Claude.
-        </p>
+        />
+        <p className="mt-4 text-sm font-normal">Revise os documentos, fatos e referências antes de usar.</p>
       </>
     ),
   },
   {
     n: "03",
-    name: "Modelos",
+    name: "Materiais para aplicar",
     body: (
-      <p>
-        5 POPs (Contrato e Procuração, Documentos da Ação, Elaboração da Inicial,
-        Revisão e Protocolo, Comunicação com o Cliente), checklist-base de
-        documentos e dicionário do cliente. Em Word editável e PDF.
-      </p>
+      <>
+        <List items={MATERIALS} />
+        <p className="mt-4">
+          Os POPs cobrem abertura de caso novo, documentos da ação, controle de
+          prazos, revisão e protocolo de peças e caso protocolado.
+        </p>
+        <p className="mt-4 text-sm font-normal">
+          Adapte os exemplos à equipe ou à sua rotina de trabalho individual.
+        </p>
+      </>
     ),
-  },
-  {
-    n: "04",
-    name: "Gestão e Equipe",
-    body: <p>Guia de Estruturação de Cargos e 4 modelos de referência.</p>,
   },
 ];
 
-/** O que a pessoa baixa, desenhado como a árvore do arquivo. */
+/** O conteúdo da Caixa Preta, módulo a módulo. */
 export function InTheBox() {
   return (
-    <section id="caixa" className="bg-background px-6 py-16 md:px-12 md:py-28">
-      <div className="mx-auto grid max-w-7xl items-start gap-12 lg:grid-cols-[minmax(0,1.35fr)_minmax(18rem,0.75fr)] lg:gap-16">
-        <div className="min-w-0">
-          <h2 className="max-w-3xl font-display text-4xl leading-[1.05] tracking-[-0.025em] text-paper text-balance md:text-6xl">
-            Você compra e recebe o acesso para baixar tudo na hora.
-          </h2>
-          <p className="mt-6 max-w-xl font-display text-2xl leading-snug text-paper/90">
-            Você instala sozinha, no seu ritmo.
-          </p>
+    <section id="caixa" className="bg-background px-6 py-12 md:px-12 md:py-28">
+      <div className="mx-auto max-w-4xl">
+        <h2 className="max-w-3xl font-display text-4xl leading-[1.05] tracking-[-0.025em] text-paper text-balance md:text-6xl">
+          Escolha a tarefa que trava <span className="text-accent">seu dia.</span>
+        </h2>
+        <p className="mt-6 max-w-2xl text-base leading-relaxed text-paper/75 md:text-lg">
+          As ferramentas, chamadas skills, ajudam a preparar documentos e textos no
+          Claude ou no ChatGPT. Cada uma acompanha arquivo de instalação e guia de uso.
+        </p>
 
-          <div className="mt-12 border-y-[0.5pt] border-line">
-            {FOLDERS.map((folder) => (
-              <details key={folder.n} className="group border-b-[0.5pt] border-line last:border-b-0">
-                <summary className="flex min-h-12 cursor-pointer list-none items-center gap-4 py-5 marker:content-none [&::-webkit-details-marker]:hidden">
-                  <span className="font-mono text-xs text-accent">{folder.n}</span>
-                  <span className="font-display text-2xl text-paper">{folder.name}</span>
-                  <span className="ml-auto font-mono text-lg leading-none text-accent group-open:hidden" aria-hidden="true">
-                    +
-                  </span>
-                  <span className="ml-auto hidden font-mono text-lg leading-none text-accent group-open:inline" aria-hidden="true">
-                    −
-                  </span>
-                </summary>
-                <div className="pb-6 pl-8 text-base leading-relaxed text-muted">{folder.body}</div>
-              </details>
-            ))}
-          </div>
-        </div>
+        <Accordion
+          className="mt-8 border-y-[0.5pt] border-line md:mt-12"
+          bodyClassName="text-base leading-relaxed text-muted md:pl-20"
+          defaultOpen="02"
+          items={MODULES.map((m) => ({
+            id: m.n,
+            header: (
+              <span key="h" className="flex min-w-0 flex-col gap-1 md:flex-row md:items-center md:gap-4">
+                <span className="font-mono text-xs text-accent">Módulo {m.n}</span>
+                <span className="font-display text-xl text-paper md:text-2xl">{m.name}</span>
+              </span>
+            ),
+            body: <Fragment key="b">{m.body}</Fragment>,
+          }))}
+        />
 
-        <WaitlistCard />
+        <Buy className="mt-8 md:mt-10" />
       </div>
     </section>
   );

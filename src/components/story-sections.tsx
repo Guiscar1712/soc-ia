@@ -1,7 +1,8 @@
 "use client";
 
-import { motion } from "motion/react";
-import { Cta, Shout } from "@/components/ui";
+import Image from "next/image";
+import { useRef } from "react";
+import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 
 const reveal = {
   initial: { opacity: 0, y: 28 },
@@ -10,76 +11,102 @@ const reveal = {
   transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
 } as const;
 
-/** A responsabilidade continua com o advogado, no formato do bloco anterior. */
-export function Control() {
+const STEPS = [
+  "Instale a ferramenta seguindo o guia.",
+  "Informe o contexto e o padrão do seu escritório.",
+  "Confira o resultado e faça os ajustes.",
+  "Salve o padrão conforme o guia para reutilizar.",
+];
+
+/** A caixa entra subindo e girando com a rolagem, depois flutua de leve. */
+function BoxImage() {
+  const ref = useRef<HTMLDivElement>(null);
+  const reduce = useReducedMotion();
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "center center"] });
+  const y = useTransform(scrollYProgress, [0, 1], [120, 0]);
+  const rotate = useTransform(scrollYProgress, [0, 1], [-9, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [0.86, 1]);
+  const opacity = useTransform(scrollYProgress, [0, 0.45], [0, 1]);
+
   return (
-    <section id="controle" className="border-y border-line bg-surface py-16 md:py-36">
-      <div className="mx-auto max-w-7xl px-6 md:px-12">
-        <motion.div {...reveal}>
-          <Shout size="md">A IA prepara.</Shout>
-          <Shout size="md" className="mt-2">
-            Quem confere <span className="text-accent">é você.</span>
-          </Shout>
-        </motion.div>
-        <div className="mt-8 grid gap-6 text-lg leading-relaxed text-paper/70 md:mt-12 md:grid-cols-2 md:gap-16">
-          <p>
-            As skills montam o rascunho, organizam o caso e apontam o que está faltando.
-            A análise jurídica, a decisão e a assinatura continuam com você, como
-            sempre foi.
-          </p>
-          <div className="space-y-6 border-l-2 border-accent pl-6">
-            <p>
-              Elas não inventam artigo nem jurisprudência: trabalham com o que você
-              fornece e com o que busca em fonte oficial.
-            </p>
-            <p>
-              E o sigilo vem primeiro. O guia de início mostra como usar sem expor
-              dado de cliente.
-            </p>
-          </div>
-        </div>
-        <div className="mt-8 md:mt-12">
-          <Cta />
-        </div>
-      </div>
-    </section>
+    <motion.div
+      ref={ref}
+      style={reduce ? undefined : { y, rotate, scale, opacity }}
+      className="relative mx-auto aspect-[1122/1402] w-full max-w-sm md:col-span-5 md:max-w-none"
+    >
+      <motion.div
+        animate={reduce ? undefined : { y: [0, -12, 0], rotate: [0, 0.8, 0] }}
+        transition={{ duration: 6, ease: "easeInOut", repeat: Infinity }}
+        className="absolute inset-0"
+      >
+        <Image
+          src="/images/caixa-preta-box.webp"
+          alt="Caixa Preta SÓC.IA aberta com o guia de boas-vindas, o guia do primeiro projeto, um POP e um contrato"
+          fill
+          sizes="(min-width: 768px) 40vw, 90vw"
+          className="object-contain drop-shadow-[0_40px_60px_rgba(0,0,0,0.55)]"
+        />
+      </motion.div>
+    </motion.div>
   );
 }
 
-const SKILL_STEPS = [
-  "Solicite os documentos.",
-  "Colete as informações.",
-  "Identifique as lacunas.",
-  "Faça o resumo para revisão.",
-];
+/** A caixa do cartão de preço: entra quicando, flutua e brilha por trás. */
+export function PriceBox({ className = "w-40 md:w-48" }: { className?: string }) {
+  const reduce = useReducedMotion();
+  return (
+    <motion.div
+      initial={reduce ? false : { opacity: 0, y: 40, scale: 0.8, rotate: -8 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1, rotate: 0 }}
+      viewport={{ once: true, margin: "-10% 0px" }}
+      transition={{ type: "spring", stiffness: 140, damping: 14 }}
+      whileHover={reduce ? undefined : { scale: 1.06, rotate: 2 }}
+      className={`relative aspect-[1122/1402] shrink-0 ${className}`}
+    >
+      <motion.div
+        aria-hidden="true"
+        className="absolute inset-[15%] rounded-full bg-accent/40 blur-3xl"
+        animate={reduce ? undefined : { opacity: [0.35, 0.75, 0.35], scale: [0.9, 1.1, 0.9] }}
+        transition={{ duration: 4, ease: "easeInOut", repeat: Infinity }}
+      />
+      <motion.div
+        className="absolute inset-0"
+        animate={reduce ? undefined : { y: [0, -10, 0], rotate: [-1.5, 1.5, -1.5] }}
+        transition={{ duration: 5, ease: "easeInOut", repeat: Infinity }}
+      >
+        <Image
+          src="/images/caixa-preta-box.webp"
+          alt=""
+          fill
+          sizes="12rem"
+          className="object-contain drop-shadow-[0_24px_40px_rgba(0,0,0,0.55)]"
+        />
+      </motion.div>
+    </motion.div>
+  );
+}
 
-/** Skill explicada para quem não é de tecnologia. */
+/** Como o padrão sai da cabeça e vira referência, em quatro passos. */
 export function Explain() {
   return (
-    <section id="como-funciona" className="bg-background py-16 md:py-36">
+    <section id="como-funciona" className="bg-background py-12 md:py-36">
       <div className="mx-auto grid max-w-7xl gap-10 px-6 md:grid-cols-12 md:gap-16 md:px-12">
-        <motion.div {...reveal} className="md:col-span-6">
-          <h2 className="font-display text-4xl leading-[1.05] tracking-[-0.025em] text-paper text-balance md:text-6xl">
-            Você não precisa entender de IA.
-          </h2>
-          <p className="mt-8 max-w-lg font-display text-2xl leading-snug text-paper/90">
-            Precisa saber como o seu escritório funciona. Isso você já sabe.
-          </p>
-          <p className="mt-8 max-w-lg text-lg leading-relaxed text-paper/70">
-            <strong className="font-semibold text-paper">Skill é um manual de instruções para a IA.</strong>{" "}
-            Você explica uma vez e ela segue sempre, do jeito do seu escritório.
-          </p>
-        </motion.div>
+        <BoxImage />
 
-        <motion.div {...reveal} transition={{ ...reveal.transition, delay: 0.15 }} className="md:col-span-6">
-          <div className="rounded-[var(--radius-card)] border-[0.5pt] border-line bg-background p-7 md:p-9">
+        <motion.div
+          {...reveal}
+          transition={{ ...reveal.transition, delay: 0.15 }}
+          className="md:col-span-7 md:self-center"
+        >
+          <h2 className="font-display text-4xl leading-[1.05] tracking-[-0.025em] text-paper text-balance md:text-6xl">
+            Você conduz a configuração e revisa <span className="text-accent">cada entrega.</span>
+          </h2>
+          <div className="mt-10 rounded-[var(--radius-card)] border-[0.5pt] border-line bg-background p-7 md:p-9">
             <div className="flex items-center justify-between gap-4 border-b-[0.5pt] border-line pb-5">
-              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent">Skill · exemplo</p>
-              <p className="font-mono text-[11px] text-paper/40">checklist-de-documentos</p>
+              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent">Como funciona</p>
             </div>
-            <h3 className="mt-6 font-display text-2xl text-paper">Quando entrar um caso novo:</h3>
             <ol className="mt-6 space-y-4">
-              {SKILL_STEPS.map((step, i) => (
+              {STEPS.map((step, i) => (
                 <motion.li
                   key={step}
                   initial={{ opacity: 0, x: -12 }}
@@ -93,73 +120,8 @@ export function Explain() {
                 </motion.li>
               ))}
             </ol>
-            <p className="mt-8 border-t-[0.5pt] border-line pt-5 font-display text-lg text-paper">
-              Você explica uma vez. A IA faz igual toda vez.
-            </p>
           </div>
         </motion.div>
-      </div>
-    </section>
-  );
-}
-
-const FOR_YOU = [
-  "é dona ou sócia de escritório e tudo ainda passa por você;",
-  "já usa o Claude, ou quer começar, e não sabe por onde;",
-  "quer padronizar o escritório sem montar tudo do zero.",
-];
-
-function CheckMark() {
-  return (
-    <svg viewBox="0 0 16 16" className="mt-1.5 h-4 w-4 shrink-0 text-accent" fill="none" aria-hidden="true">
-      <path d="M3 8.5 6.2 12 13 4" stroke="currentColor" strokeWidth="1.5" />
-    </svg>
-  );
-}
-
-/** Para quem a Caixa Preta SÓC.IA serve, e para quem não serve. */
-export function ForWhom() {
-  return (
-    <section id="para-quem" className="bg-background px-6 pt-16 pb-8 md:px-12 md:pt-28 md:pb-12">
-      <div className="mx-auto max-w-7xl">
-        <div className="grid border-y-[0.5pt] border-line md:grid-cols-2">
-          <div className="py-8 md:py-12 md:pr-12">
-            <h2 className="font-display text-3xl leading-tight text-paper md:text-5xl">É para você se:</h2>
-            <ul className="mt-8">
-              {FOR_YOU.map((item) => (
-                <li
-                  key={item}
-                  className="flex gap-4 border-t-[0.5pt] border-line py-5 text-[1.24rem] leading-relaxed text-paper/85 first:border-t-0"
-                >
-                  <CheckMark />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="border-t-[0.5pt] border-line py-8 md:border-t-0 md:border-l-[0.5pt] md:py-12 md:pl-12">
-            <h2 className="font-display text-3xl leading-tight text-muted md:text-5xl">Não é para você se:</h2>
-            <ul className="mt-8">
-              <li className="flex gap-4 border-t-[0.5pt] border-line py-5 text-[1.24rem] leading-relaxed text-muted first:border-t-0">
-                <span className="mt-[0.7em] h-px w-3 shrink-0 bg-muted" aria-hidden="true" />
-                <span>procura uma IA que faça tudo sem você revisar;</span>
-              </li>
-              <li className="flex gap-4 border-t-[0.5pt] border-line py-5 text-[1.24rem] leading-relaxed text-muted">
-                <span className="mt-[0.7em] h-px w-3 shrink-0 bg-muted" aria-hidden="true" />
-                <span>
-                  quer que alguém monte tudo no seu Claude por você. Para isso existe a{" "}
-                  <a
-                    href="/links"
-                    className="underline decoration-accent decoration-[0.5pt] underline-offset-[5px]"
-                  >
-                    Implementação SÓC.IA
-                  </a>
-                  .
-                </span>
-              </li>
-            </ul>
-          </div>
-        </div>
       </div>
     </section>
   );

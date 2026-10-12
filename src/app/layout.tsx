@@ -5,7 +5,7 @@ import "./globals.css";
 const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
-  weight: ["300", "500", "600"],
+  weight: ["500", "600"],
 });
 
 const inter = Inter({
@@ -17,13 +17,13 @@ const inter = Inter({
 const jetbrains = JetBrains_Mono({
   variable: "--font-jetbrains",
   subsets: ["latin"],
-  weight: ["300", "400", "500"],
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {
-  title: "Caixa Preta SÓC.IA | Tire o escritório da sua cabeça",
+  title: "Caixa Preta SÓC.IA | Tire o padrão do escritório da sua cabeça",
   description:
-    "7 skills do Claude e modelos editáveis para tirar o jeito de trabalhar do seu escritório da sua cabeça.",
+    "Ferramentas de IA e processos de exemplo para registrar suas rotinas e criar materiais que você revisa e reutiliza.",
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
@@ -33,9 +33,9 @@ export const metadata: Metadata = {
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
   },
   openGraph: {
-    title: "Caixa Preta SÓC.IA | Tire o escritório da sua cabeça",
+    title: "Caixa Preta SÓC.IA | Tire o padrão do escritório da sua cabeça",
     description:
-      "7 skills do Claude, do contrato ao pós-venda, e os modelos do escritório para adaptar.",
+      "Ferramentas de IA e processos de exemplo para registrar suas rotinas e criar materiais que você revisa e reutiliza.",
     images: [
       {
         url: "/og.png",
@@ -49,9 +49,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Caixa Preta SÓC.IA | Tire o escritório da sua cabeça",
+    title: "Caixa Preta SÓC.IA | Tire o padrão do escritório da sua cabeça",
     description:
-      "7 skills do Claude, do contrato ao pós-venda, e os modelos do escritório para adaptar.",
+      "Ferramentas de IA e processos de exemplo para registrar suas rotinas e criar materiais que você revisa e reutiliza.",
     images: ["/og.png"],
   },
 };
