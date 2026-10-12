@@ -219,7 +219,7 @@ export default function LinksPage() {
             materiais que você revisa e reutiliza.
           </p>
           <ul>
-            <li>6 skills com arquivo de instalação e guia de uso</li>
+            <li>7 skills com arquivo de instalação e guia de uso</li>
             <li>Guia de início, Mapa do caso e Manual do Claude para o escritório</li>
             <li>30 prompts e 5 POPs de exemplo para adaptar</li>
             <li>R$ 97 · pagamento único. Requer Claude ou ChatGPT</li>

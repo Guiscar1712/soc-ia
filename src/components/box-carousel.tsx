@@ -9,13 +9,15 @@ export const SKILLS = [
   ["Revisão de Peças", "identifique lacunas e inconsistências, com apontamentos por gravidade e sugestões de correção."],
   ["Comunicação Humana", "prepare explicações ao cliente em linguagem simples e ajuste a redação dos seus textos."],
   ["Criador de POP", "transforme uma rotina em procedimento com responsáveis, etapas e pontos de controle."],
+  ["Petição Inicial", "organize os fatos do caso e prepare a minuta da inicial, a partir dos seus modelos, para revisão."],
 ];
 
 const MATERIALS = [
   "Mapa do caso para visualizar a jornada e onde usar cada ferramenta.",
   "Manual do Claude para o escritório, com orientações de uso e cuidados com dados.",
-  "30 prompts para copiar e adaptar a tarefas complementares.",
-  "Como criar seu primeiro projeto, com 5 POPs de exemplo, com prompts de adaptação.",
+  "30 prompts para copiar, colar e adaptar ao seu escritório.",
+  "Como criar o seu primeiro projeto no Claude, passo a passo.",
+  "5 POPs de exemplo, com prompts para adaptar à sua rotina.",
 ];
 
 function List({ items }: { items: ReactNode[] }) {
