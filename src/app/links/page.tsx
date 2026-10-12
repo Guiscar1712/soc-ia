@@ -97,7 +97,7 @@ export default function LinksPage() {
               </div>
               <div>
                 <h3>Caixa Preta SÓC.IA</h3>
-                <p>Você instala sozinha, no seu ritmo.</p>
+                <p>Ferramentas de IA e processos de exemplo. R$ 97.</p>
                 <OpenSheet target="d-caixa">Ver detalhes →</OpenSheet>
               </div>
             </article>
@@ -215,16 +215,17 @@ export default function LinksPage() {
         </div>
         <div className="sheet-body">
           <p>
-            A Caixa Preta SÓC.IA é a do meu escritório, aberta. Você instala sozinha, no seu ritmo.
+            Ferramentas de IA e processos de exemplo para registrar suas rotinas e criar
+            materiais que você revisa e reutiliza.
           </p>
           <ul>
-            <li>7 skills do Claude, cada uma com o passo a passo de instalação</li>
-            <li>5 POPs, checklist-base de documentos e dicionário do cliente</li>
-            <li>Modelos em Word editável e PDF</li>
-            <li>Guia de Estruturação de Cargos e 4 modelos de referência</li>
+            <li>6 skills com arquivo de instalação e guia de uso</li>
+            <li>Guia de início, Mapa do caso e Manual do Claude para o escritório</li>
+            <li>30 prompts e 5 POPs de exemplo para adaptar</li>
+            <li>R$ 97 · pagamento único. Requer Claude ou ChatGPT</li>
           </ul>
           <a className="btn btn-solid" href="/">
-            Entrar na lista de espera
+            Quero minha Caixa Preta
           </a>
         </div>
       </Sheet>
