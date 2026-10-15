@@ -1,3 +1,4 @@
+import Script from "next/script";
 import { Nav } from "@/components/nav";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { BrandLockup } from "@/components/brand-mark";
@@ -11,6 +12,15 @@ import { FloatingCta } from "@/components/floating-cta";
 export default function Home() {
   return (
     <>
+      <Script id="eduzz-checkout" strategy="afterInteractive">
+        {`document.querySelectorAll('a[href*="eduzz"]').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    fbq('trackCustom', 'CliqueCheckout');
+  });
+  var q = window.location.search;
+  if (q) btn.href += (btn.href.includes('?') ? '&' : '?') + q.substring(1);
+});`}
+      </Script>
       <SmoothScroll />
       <Nav />
       <main>

@@ -1,7 +1,7 @@
 import { ArrowRight } from "@phosphor-icons/react/ssr";
 
 export const CTA_LABEL = "Quero minha Caixa Preta";
-export const CTA_HREF = "https://sun.eduzz.com/69K1OYO7WO";
+export const CTA_HREF = "https://chk.eduzz.com/h7mlfoac";
 export const PRICE_VALUE = "R$ 97";
 export const REQUIREMENTS = "Requer Claude ou ChatGPT. Custos da plataforma não incluídos.";
 
