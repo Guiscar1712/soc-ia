@@ -20,7 +20,7 @@ const MATERIALS = [
   "5 POPs de exemplo, com prompts para adaptar à sua rotina.",
 ];
 
-function List({ items }: { items: ReactNode[] }) {
+export function List({ items }: { items: ReactNode[] }) {
   return (
     <ol className="mt-4">
       {items.map((item, i) => (
@@ -33,7 +33,9 @@ function List({ items }: { items: ReactNode[] }) {
   );
 }
 
-const MODULES: { n: string; name: string; body: ReactNode }[] = [
+export type BoxModule = { n: string; name: string; body: ReactNode };
+
+const MODULES: BoxModule[] = [
   {
     n: "01",
     name: "Comece aqui",
@@ -86,23 +88,34 @@ const MODULES: { n: string; name: string; body: ReactNode }[] = [
 ];
 
 /** O conteúdo da Caixa Preta, módulo a módulo. */
-export function InTheBox() {
+export function InTheBox({
+  title = (
+    <>
+      Escolha a tarefa que trava <span className="text-accent">seu dia.</span>
+    </>
+  ),
+  lead = "As ferramentas, chamadas skills, ajudam a preparar documentos e textos no Claude ou no ChatGPT. Cada uma acompanha arquivo de instalação e guia de uso.",
+  modules = MODULES,
+}: {
+  title?: ReactNode;
+  lead?: string;
+  modules?: BoxModule[];
+} = {}) {
   return (
     <section id="caixa" className="bg-background px-6 py-12 md:px-12 md:py-28">
       <div className="mx-auto max-w-4xl">
         <h2 className="max-w-3xl font-display text-4xl leading-[1.05] tracking-[-0.025em] text-paper text-balance md:text-6xl">
-          Escolha a tarefa que trava <span className="text-accent">seu dia.</span>
+          {title}
         </h2>
         <p className="mt-6 max-w-2xl text-base leading-relaxed text-paper/75 md:text-lg">
-          As ferramentas, chamadas skills, ajudam a preparar documentos e textos no
-          Claude ou no ChatGPT. Cada uma acompanha arquivo de instalação e guia de uso.
+          {lead}
         </p>
 
         <Accordion
           className="mt-8 border-y-[0.5pt] border-line md:mt-12"
           bodyClassName="text-base leading-relaxed text-muted md:pl-20"
           defaultOpen="02"
-          items={MODULES.map((m) => ({
+          items={modules.map((m) => ({
             id: m.n,
             header: (
               <span key="h" className="flex min-w-0 flex-col gap-1 md:flex-row md:items-center md:gap-4">

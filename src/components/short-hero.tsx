@@ -4,12 +4,12 @@ import { useEffect, useState } from "react";
 import { animate, motion, useMotionValue, useReducedMotion } from "motion/react";
 import { DotField } from "@/components/dots/dot-field";
 import { cluster, cubeWithDocs, spread } from "@/components/dots/shapes";
-import { Buy, Eyebrow, REQUIREMENTS } from "@/components/ui";
+import { Buy, Eyebrow } from "@/components/ui";
 
 const STEPS = [
-  { title: "Instale", body: "Cada ferramenta vem com arquivo de instalação e guia passo a passo." },
-  { title: "Ensine o seu padrão", body: "Informe como o seu escritório faz contrato, checklist ou petição." },
-  { title: "Revise e reutilize", body: "Confira o que a IA preparou, ajuste e use de novo na próxima vez." },
+  { title: "Instale", body: "Siga o guia e configure a primeira ferramenta." },
+  { title: "Registre seu jeito de fazer", body: "Adapte as instruções ao padrão dos documentos e das rotinas do seu escritório." },
+  { title: "Use no próximo caso", body: "Informe os novos dados, peça uma versão e revise antes de usar." },
 ];
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -64,18 +64,19 @@ export function ShortHero() {
           <motion.div {...enter(0)}>
             <Eyebrow>Caixa Preta SÓC.IA</Eyebrow>
             <h1 className="font-display text-[2.6rem] leading-[1.02] tracking-[-0.03em] text-paper text-balance sm:text-6xl lg:text-[5rem]">
-              Pare de explicar a mesma tarefa <span className="text-accent">toda semana.</span>
+              Pare de explicar a mesma tarefa <span className="text-accent">toda semana</span>
             </h1>
           </motion.div>
-          <motion.p {...enter(0.12)} className="mt-7 max-w-xl text-lg leading-relaxed text-paper/80">
-            Ferramentas de IA, processos de exemplo e guias para registrar o padrão do
-            seu escritório uma vez e reutilizar nas próximas. Você instala, revisa e
-            aplica no seu ritmo.
-          </motion.p>
+          <motion.div {...enter(0.12)} className="mt-7 max-w-xl space-y-4 text-lg leading-relaxed text-paper/80">
+            <p>7 ferramentas de IA para registrar o jeito do seu escritório trabalhar e reutilizar nas próximas tarefas.</p>
+            <p className="text-paper/65">
+              Contratos, checklists e peças: você adapta as instruções, informa os dados do caso e revisa o resultado.
+            </p>
+          </motion.div>
           <motion.div {...enter(0.24)}>
             <Buy className="mt-9" />
             <p className="mt-5 max-w-md text-sm font-normal leading-relaxed text-paper/60">
-              Materiais digitais para aplicar no seu escritório. {REQUIREMENTS}
+              Materiais digitais com instalação e guias de uso. Requer Claude ou ChatGPT, conforme o material. Custos da plataforma não incluídos.
             </p>
           </motion.div>
         </div>
@@ -84,7 +85,11 @@ export function ShortHero() {
         </div>
       </div>
 
-      <div id="como-funciona" className="relative mx-auto mt-16 grid max-w-7xl gap-6 border-t-[0.5pt] border-line pt-8 md:mt-24 md:grid-cols-3 md:gap-10 md:pt-10">
+      <div id="como-funciona" className="relative mx-auto mt-16 max-w-7xl border-t-[0.5pt] border-line pt-8 md:mt-24 md:pt-10">
+        <motion.h2 {...enter(0.3)} className="font-display text-3xl leading-[1.05] tracking-[-0.025em] text-paper md:text-5xl">
+          Seu padrão pronto para <span className="text-accent">usar de novo</span>
+        </motion.h2>
+        <div className="mt-8 grid gap-6 md:mt-10 md:grid-cols-3 md:gap-10">
         {STEPS.map((step, i) => (
           <motion.div key={step.title} {...enter(0.3 + i * 0.1)} className="flex gap-4">
             <span className="mt-1 font-mono text-xs text-accent">{String(i + 1).padStart(2, "0")}</span>
@@ -94,6 +99,7 @@ export function ShortHero() {
             </div>
           </motion.div>
         ))}
+        </div>
       </div>
     </section>
   );

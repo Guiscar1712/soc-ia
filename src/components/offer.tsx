@@ -38,7 +38,7 @@ function Dash() {
 }
 
 /** O cartão de compra: produto, valor e botão, sempre à vista no desktop. */
-function PriceCard() {
+function PriceCard({ requirements = true }: { requirements?: boolean }) {
   return (
     <div className="rounded-[var(--radius-card)] border-[0.5pt] border-accent bg-surface p-5 sm:p-6 md:p-7 lg:sticky lg:top-24">
       <div className="flex flex-col items-center text-center">
@@ -58,39 +58,66 @@ function PriceCard() {
       </div>
 
       <Cta className="mt-7 w-full" />
-      <p className="mt-4 text-center text-xs font-normal leading-relaxed text-paper/60">
-        {REQUIREMENTS} As skills exigem execução de código e criação de arquivos
-        habilitadas no Claude ou no ChatGPT.
-      </p>
+      {requirements && (
+        <p className="mt-4 text-center text-xs font-normal leading-relaxed text-paper/60">
+          {REQUIREMENTS} As skills exigem execução de código e criação de arquivos
+          habilitadas no Claude ou no ChatGPT.
+        </p>
+      )}
     </div>
   );
 }
 
-/** A oferta: o que vem, para quem e o que não está incluído. */
-export function Offer() {
+export interface OfferCopy {
+  title?: React.ReactNode;
+  paragraphs?: React.ReactNode[];
+  included?: string[];
+  forWhom?: string[];
+  /** Lista (como na principal) ou uma frase só. */
+  notIncluded?: string[] | string;
+  notIncludedTitle?: string;
+  /** Mostra o aviso de requisitos abaixo do botão do cartão de compra. */
+  cardRequirements?: boolean;
+}
+
+/** A oferta: o que vem, para quem e o que não está incluído. Sem props usa a copy da principal. */
+export function Offer({
+  title = (
+    <>
+      Comece pelo que você <span className="text-accent">repete.</span>
+    </>
+  ),
+  paragraphs = [
+    <>
+      De {PRICE_FROM} por {PRICE_VALUE}, você recebe as ferramentas de IA, os processos de exemplo e
+      os guias para começar a registrar e reutilizar seu padrão de trabalho.
+    </>,
+    "Para advogadas e advogados que trabalham sozinhos ou com equipe. Você instala, configura e aplica os materiais no seu ritmo.",
+  ],
+  included = INCLUDED,
+  forWhom = FOR_WHOM,
+  notIncluded = NOT_INCLUDED,
+  notIncludedTitle = "Não faz parte da compra",
+  cardRequirements = true,
+}: OfferCopy = {}) {
   return (
     <section id="oferta" className="border-t border-line bg-background px-6 py-12 md:px-12 md:py-28">
       <div className="mx-auto grid max-w-7xl items-start gap-10 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-7">
           <h2 className="font-display text-4xl leading-[1.05] tracking-[-0.025em] text-paper text-balance md:text-6xl">
-            Comece pelo que você <span className="text-accent">repete.</span>
+            {title}
           </h2>
           <div className="mt-6 max-w-2xl space-y-4 text-base md:mt-8 md:space-y-5 md:text-lg leading-relaxed text-paper/75">
-            <p>
-              De {PRICE_FROM} por {PRICE_VALUE}, você recebe as ferramentas de IA, os processos de exemplo e
-              os guias para começar a registrar e reutilizar seu padrão de trabalho.
-            </p>
-            <p>
-              Para advogadas e advogados que trabalham sozinhos ou com equipe. Você
-              instala, configura e aplica os materiais no seu ritmo.
-            </p>
+            {paragraphs.map((text, i) => (
+              <p key={i}>{text}</p>
+            ))}
           </div>
 
           <h3 className="mt-10 font-mono md:mt-12 text-[11px] uppercase tracking-[0.23em] text-accent">
             O que você recebe
           </h3>
           <ul className="mt-5 grid gap-x-8 gap-y-3 border-y-[0.5pt] border-line py-6 sm:grid-cols-2">
-            {INCLUDED.map((item) => (
+            {included.map((item) => (
               <li key={item} className="flex gap-3 text-base leading-relaxed text-paper/85">
                 <Check />
                 <span>{item}</span>
@@ -102,7 +129,7 @@ export function Offer() {
             <div>
               <h3 className="font-mono text-[11px] uppercase tracking-[0.23em] text-accent">Para quem é</h3>
               <ul className="mt-5 space-y-3">
-                {FOR_WHOM.map((item) => (
+                {forWhom.map((item) => (
                   <li key={item} className="flex gap-3 text-base leading-relaxed text-paper/80">
                     <Check />
                     <span>{item}</span>
@@ -112,29 +139,33 @@ export function Offer() {
             </div>
             <div>
               <h3 className="font-mono text-[11px] uppercase tracking-[0.23em] text-paper/50">
-                Não faz parte da compra
+                {notIncludedTitle}
               </h3>
-              <ul className="mt-5 space-y-3">
-                {NOT_INCLUDED.map((item) => (
-                  <li key={item} className="flex gap-3 text-base leading-relaxed text-muted">
-                    <Dash />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+              {typeof notIncluded === "string" ? (
+                <p className="mt-5 text-base leading-relaxed text-muted">{notIncluded}</p>
+              ) : (
+                <ul className="mt-5 space-y-3">
+                  {notIncluded.map((item) => (
+                    <li key={item} className="flex gap-3 text-base leading-relaxed text-muted">
+                      <Dash />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           </div>
         </div>
 
         <div className="lg:col-span-5 lg:self-stretch">
-          <PriceCard />
+          <PriceCard requirements={cardRequirements} />
         </div>
       </div>
     </section>
   );
 }
 
-const FAQ = [
+const FAQ: [string, string][] = [
   [
     "Preciso saber usar IA?",
     "Você recebe guias de instalação e uso. Comece com uma ferramenta e siga as orientações de configuração e revisão.",
@@ -169,7 +200,8 @@ const FAQ = [
   ],
 ];
 
-export function Faq() {
+/** Dúvidas; sem props usa as perguntas da principal. */
+export function Faq({ items = FAQ }: { items?: [string, string][] } = {}) {
   return (
     <section id="duvidas" className="bg-background px-6 py-12 md:px-12 md:py-24">
       <div className="mx-auto max-w-4xl">
@@ -178,7 +210,7 @@ export function Faq() {
         </h2>
         <Accordion
           className="mt-8 border-y-[0.5pt] border-line md:mt-10"
-          items={FAQ.map(([q, a]) => ({
+          items={items.map(([q, a]) => ({
             id: q,
             header: <span key="h" className="font-display text-xl text-paper md:text-2xl">{q}</span>,
             body: <p key="b" className="max-w-2xl text-base leading-relaxed text-muted">{a}</p>,
