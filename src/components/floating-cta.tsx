@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { CTA_HREF, CTA_LABEL } from "@/components/ui";
 
 /** Botão fixo do celular. Some quando outro botão de compra já está na tela. */
-export function FloatingCta() {
+export function FloatingCta({ href = CTA_HREF, label = CTA_LABEL }: { href?: string; label?: string } = {}) {
   const [hidden, setHidden] = useState(true);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export function FloatingCta() {
 
   return (
     <a
-      href={CTA_HREF}
+      href={href}
       target="_blank"
       rel="noopener noreferrer"
       aria-hidden={hidden}
@@ -35,7 +35,7 @@ export function FloatingCta() {
         hidden ? "pointer-events-none translate-y-4 opacity-0" : "translate-y-0 opacity-100"
       }`}
     >
-      {CTA_LABEL}
+      {label}
     </a>
   );
 }

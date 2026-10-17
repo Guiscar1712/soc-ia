@@ -201,12 +201,12 @@ const FAQ: [string, string][] = [
 ];
 
 /** Dúvidas; sem props usa as perguntas da principal. */
-export function Faq({ items = FAQ }: { items?: [string, string][] } = {}) {
+export function Faq({ items = FAQ, title = "Dúvidas frequentes" }: { items?: [string, string][]; title?: string } = {}) {
   return (
     <section id="duvidas" className="bg-background px-6 py-12 md:px-12 md:py-24">
       <div className="mx-auto max-w-4xl">
         <h2 className="font-display text-4xl leading-[1.05] tracking-[-0.025em] text-paper md:text-6xl">
-          Dúvidas frequentes
+          {title}
         </h2>
         <Accordion
           className="mt-8 border-y-[0.5pt] border-line md:mt-10"

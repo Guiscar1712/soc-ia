@@ -10,13 +10,15 @@ export const REQUIREMENTS = "Requer Claude ou ChatGPT. Custos da plataforma não
 export function Cta({
   children = CTA_LABEL,
   className = "",
+  href = CTA_HREF,
 }: {
   children?: React.ReactNode;
   className?: string;
+  href?: string;
 }) {
   return (
     <a
-      href={CTA_HREF}
+      href={href}
       target="_blank"
       rel="noopener noreferrer"
       data-cta=""
@@ -29,14 +31,22 @@ export function Cta({
 }
 
 /** O valor em destaque: número grande, condição pequena. */
-export function Price({ className = "" }: { className?: string }) {
+export function Price({
+  className = "",
+  from = PRICE_FROM,
+  value = PRICE_VALUE,
+}: {
+  className?: string;
+  from?: string;
+  value?: string;
+}) {
   return (
     <p className={`flex flex-wrap items-baseline gap-x-3 gap-y-1 ${className}`}>
       <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-paper/60">
-        de <s className="decoration-paper/50">{PRICE_FROM}</s> por
+        de <s className="decoration-paper/50">{from}</s> por
       </span>
       <span className="font-display text-4xl leading-none tracking-[-0.02em] text-accent md:text-5xl">
-        {PRICE_VALUE}
+        {value}
       </span>
       <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-paper/70">pagamento único</span>
     </p>
