@@ -7,9 +7,9 @@ import { Faq } from "@/components/offer";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { UpsellFinal, UpsellHero, UpsellHowTo, UpsellIncluded, UpsellOffer } from "@/components/upsell";
 
-// PENDENTE: checkout da oferta de R$ 67 e a página de acesso à skill gratuita.
+// Link "Vou começar pela skill gratuita": preencha FREE_SKILL quando houver a página de acesso.
 const CHECKOUT_67 = "https://chk.eduzz.com/zoaqb3cw";
-const FREE_SKILL = "#PENDENTE-ACESSO-GRATUITA";
+const FREE_SKILL: string | undefined = undefined;
 
 // Página depois do cadastro da skill gratuita: confirma o envio e oferece a Caixa Preta por R$ 67.
 export const metadata: Metadata = {

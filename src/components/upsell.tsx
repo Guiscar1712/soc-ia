@@ -8,7 +8,8 @@ import { Cta, Eyebrow, Price } from "@/components/ui";
 
 export interface UpsellLinks {
   checkout: string;
-  freeSkill: string;
+  /** Página de acesso à gratuita; sem ela o link secundário não aparece. */
+  freeSkill?: string;
 }
 
 const FROM = "R$ 147";
@@ -145,13 +146,15 @@ export function UpsellOffer({ checkout, freeSkill }: UpsellLinks) {
           <Cta href={checkout} className="mt-7 w-full">
             Quero a Caixa Preta por R$ 67
           </Cta>
-          <a
-            href={freeSkill}
-            className="mt-5 inline-flex items-center gap-1.5 text-sm text-paper/70 underline decoration-paper/30 underline-offset-4 transition hover:text-paper hover:decoration-paper"
-          >
-            Vou começar pela skill gratuita
-            <ArrowRight className="h-4 w-4" aria-hidden="true" />
-          </a>
+          {freeSkill && (
+            <a
+              href={freeSkill}
+              className="mt-5 inline-flex items-center gap-1.5 text-sm text-paper/70 underline decoration-paper/30 underline-offset-4 transition hover:text-paper hover:decoration-paper"
+            >
+              Vou começar pela skill gratuita
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </a>
+          )}
           <p className="mt-6 text-xs font-normal leading-relaxed text-paper/60">
             Materiais digitais. Requer Claude ou ChatGPT, conforme o guia. Assinaturas, aulas, configuração
             individual e acompanhamento não estão incluídos. Revise os resultados antes de usar.
