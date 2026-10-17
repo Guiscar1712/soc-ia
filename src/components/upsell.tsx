@@ -130,7 +130,7 @@ export function UpsellOffer({ checkout, freeSkill }: UpsellLinks) {
     <section id="oferta" className="border-t border-line bg-background px-6 py-14 md:px-12 md:py-28">
       <motion.div {...reveal} className="mx-auto max-w-xl text-center">
         <h2 className="font-display text-4xl leading-[1.05] tracking-[-0.025em] text-paper text-balance md:text-5xl">
-          R$ 30 de desconto para dar o <span className="text-accent">próximo passo</span>
+          R$ 80 de desconto para dar o <span className="text-accent">próximo passo</span>
         </h2>
         <div className="mt-10 rounded-[var(--radius-card)] border-[0.5pt] border-accent bg-surface p-6 md:p-8">
           <div className="flex flex-col items-center">
@@ -175,7 +175,7 @@ export function UpsellFinal({ checkout }: Pick<UpsellLinks, "checkout">) {
         </p>
         <Price className="mt-8 justify-center" from={FROM} value={VALUE} />
         <div className="mt-8">
-          <Cta href={checkout}>Quero aproveitar os R$ 30 de desconto</Cta>
+          <Cta href={checkout}>Quero aproveitar os R$ 80 de desconto</Cta>
         </div>
       </motion.div>
     </section>
