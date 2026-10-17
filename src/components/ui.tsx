@@ -3,6 +3,8 @@ import { ArrowRight } from "@phosphor-icons/react/ssr";
 export const CTA_LABEL = "Quero minha Caixa Preta";
 export const CTA_HREF = "https://chk.eduzz.com/h7mlfoac";
 export const PRICE_VALUE = "R$ 97";
+/** Preço de referência mostrado riscado ao lado do valor atual. */
+export const PRICE_FROM = "R$ 147";
 export const REQUIREMENTS = "Requer Claude ou ChatGPT. Custos da plataforma não incluídos.";
 
 export function Cta({
@@ -29,7 +31,10 @@ export function Cta({
 /** O valor em destaque: número grande, condição pequena. */
 export function Price({ className = "" }: { className?: string }) {
   return (
-    <p className={`flex items-baseline gap-3 ${className}`}>
+    <p className={`flex flex-wrap items-baseline gap-x-3 gap-y-1 ${className}`}>
+      <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-paper/60">
+        de <s className="decoration-paper/50">{PRICE_FROM}</s> por
+      </span>
       <span className="font-display text-4xl leading-none tracking-[-0.02em] text-accent md:text-5xl">
         {PRICE_VALUE}
       </span>

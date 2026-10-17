@@ -1,7 +1,7 @@
 import { Accordion } from "@/components/accordion";
 import { PriceBox } from "@/components/story-sections";
 import { SKILLS } from "@/components/box-carousel";
-import { Cta, Price, PRICE_VALUE, REQUIREMENTS } from "@/components/ui";
+import { Cta, Price, PRICE_FROM, PRICE_VALUE, REQUIREMENTS } from "@/components/ui";
 
 const INCLUDED = [
   `${SKILLS.length} skills com arquivo de instalação e guia de uso`,
@@ -46,7 +46,10 @@ function PriceCard() {
         <p className="mt-5 font-mono text-xs uppercase tracking-[0.23em] text-accent md:text-sm">
           Caixa Preta SÓC.IA
         </p>
-        <p className="mt-3 font-display text-7xl leading-none tracking-[-0.03em] text-paper md:text-8xl">
+        <p className="mt-4 font-mono text-xs uppercase tracking-[0.2em] text-paper/60 md:text-sm">
+          de <s className="decoration-paper/50">{PRICE_FROM}</s> por
+        </p>
+        <p className="mt-2 font-display text-7xl leading-none tracking-[-0.03em] text-paper md:text-8xl">
           {PRICE_VALUE}
         </p>
         <p className="mt-3 font-mono text-xs uppercase tracking-[0.2em] text-paper/75 md:text-sm">
@@ -74,7 +77,7 @@ export function Offer() {
           </h2>
           <div className="mt-6 max-w-2xl space-y-4 text-base md:mt-8 md:space-y-5 md:text-lg leading-relaxed text-paper/75">
             <p>
-              Por R$ 97, você recebe as ferramentas de IA, os processos de exemplo e
+              De {PRICE_FROM} por {PRICE_VALUE}, você recebe as ferramentas de IA, os processos de exemplo e
               os guias para começar a registrar e reutilizar seu padrão de trabalho.
             </p>
             <p>
@@ -186,16 +189,26 @@ export function Faq() {
   );
 }
 
-export function FinalCall() {
+/** Chamada final; sem props usa a copy da página principal. */
+export function FinalCall({
+  title = (
+    <>
+      Dê um padrão à <span className="text-accent">próxima tarefa.</span>
+    </>
+  ),
+  lead = "Escolha uma rotina que se repete. Use a Caixa Preta para registrá-la e começar a reutilizar o que hoje depende da sua memória.",
+}: {
+  title?: React.ReactNode;
+  lead?: string;
+} = {}) {
   return (
     <section className="border-t border-line bg-surface px-6 py-14 md:px-12 md:py-32">
       <div className="mx-auto max-w-3xl text-center">
         <h2 className="font-display text-4xl leading-[1.05] tracking-[-0.025em] text-paper text-balance md:text-6xl">
-          Dê um padrão à <span className="text-accent">próxima tarefa.</span>
+          {title}
         </h2>
         <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-paper/75">
-          Escolha uma rotina que se repete. Use a Caixa Preta para registrá-la e
-          começar a reutilizar o que hoje depende da sua memória.
+          {lead}
         </p>
         <p className="mt-8 font-mono text-xs uppercase tracking-[0.18em] text-paper/70">Caixa Preta SÓC.IA</p>
         <Price className="mt-3 justify-center" />
