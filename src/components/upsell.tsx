@@ -1,4 +1,7 @@
-import { ArrowRight, CheckCircle } from "@phosphor-icons/react/ssr";
+"use client";
+
+import { motion, useReducedMotion } from "motion/react";
+import { ArrowRight } from "@phosphor-icons/react";
 import { PriceBox } from "@/components/story-sections";
 import { SKILLS } from "@/components/box-carousel";
 import { Cta, Eyebrow, Price } from "@/components/ui";
@@ -8,36 +11,58 @@ export interface UpsellLinks {
   freeSkill: string;
 }
 
-const FROM = "R$ 97";
+const FROM = "R$ 147";
 const VALUE = "R$ 67";
+
+const ease = [0.22, 1, 0.36, 1] as const;
+
+/** Entrada ao rolar, igual às outras seções do site. */
+const reveal = {
+  initial: { opacity: 0, y: 28 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-15% 0px" },
+  transition: { duration: 0.7, ease },
+} as const;
+
+/** Itens de lista entrando um depois do outro. */
+const item = (i: number) =>
+  ({
+    initial: { opacity: 0, x: -12 },
+    whileInView: { opacity: 1, x: 0 },
+    viewport: { once: true },
+    transition: { delay: 0.15 + i * 0.06, duration: 0.5, ease },
+  }) as const;
 
 const STEPS = ["Instale seguindo o guia", "Ajuste as instruções ao seu padrão", "Informe os dados do caso e revise o resultado"];
 
 /** Topo: confirma a gratuita e apresenta a oferta. */
 export function UpsellHero({ checkout }: Pick<UpsellLinks, "checkout">) {
+  const reduce = useReducedMotion();
+  const enter = (delay: number) =>
+    reduce ? {} : { initial: { opacity: 0, y: 24 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.7, delay, ease } };
   return (
     <section id="top" className="relative overflow-hidden bg-background px-6 pb-14 pt-28 md:px-12 md:pb-24 md:pt-36">
-      <div className="pointer-events-none absolute -right-40 top-10 h-[36rem] w-[36rem] rounded-full bg-accent/10 blur-3xl" aria-hidden="true" />
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 md:grid-cols-12">
         <div className="md:col-span-7">
-          <p className="inline-flex items-center gap-2 rounded-full border-[0.5pt] border-accent/60 bg-accent/10 px-4 py-2 text-sm text-paper">
-            <CheckCircle weight="fill" className="h-5 w-5 shrink-0 text-accent" aria-hidden="true" />
-            Sua skill gratuita está a caminho do seu e-mail
-          </p>
-          <h1 className="mt-8 font-display text-[2.6rem] leading-[1.02] tracking-[-0.03em] text-paper text-balance sm:text-6xl lg:text-[4.75rem]">
-            Agora, leve a Caixa Preta completa por <span className="text-accent">R$ 67</span>
-          </h1>
-          <p className="mt-7 max-w-xl text-lg leading-relaxed text-paper/80">
+          <motion.div {...enter(0)}>
+            <Eyebrow>Sua skill gratuita está a caminho do seu e-mail</Eyebrow>
+            <h1 className="font-display text-[2.6rem] leading-[1.02] tracking-[-0.03em] text-paper text-balance sm:text-6xl lg:text-[4.75rem]">
+              Agora, leve a Caixa Preta completa por <span className="text-accent">R$ 67</span>
+            </h1>
+          </motion.div>
+          <motion.p {...enter(0.12)} className="mt-7 max-w-xl text-lg leading-relaxed text-paper/80">
             Tenha 7 skills para preparar contratos, organizar documentos, revisar peças e padronizar
             tarefas do escritório, com guias para instalar e usar.
-          </p>
-          <Price className="mt-8" from={FROM} value={VALUE} />
-          <Cta href={checkout} className="mt-6 w-full sm:w-auto">
-            Quero minha Caixa Preta por R$ 67
-          </Cta>
-          <p className="mt-5 max-w-md text-sm font-normal leading-relaxed text-paper/60">
-            Seu material gratuito já está liberado. A compra é opcional.
-          </p>
+          </motion.p>
+          <motion.div {...enter(0.24)}>
+            <Price className="mt-8" from={FROM} value={VALUE} />
+            <Cta href={checkout} className="mt-6 w-full sm:w-auto">
+              Quero minha Caixa Preta por R$ 67
+            </Cta>
+            <p className="mt-5 max-w-md text-sm font-normal leading-relaxed text-paper/60">
+              Seu material gratuito já está liberado. A compra é opcional.
+            </p>
+          </motion.div>
         </div>
         <div className="hidden justify-center md:col-span-5 md:flex">
           <PriceBox className="w-64 lg:w-80" />
@@ -51,17 +76,17 @@ export function UpsellHero({ checkout }: Pick<UpsellLinks, "checkout">) {
 export function UpsellIncluded() {
   return (
     <section id="caixa" className="border-t border-line bg-background px-6 py-14 md:px-12 md:py-28">
-      <div className="mx-auto max-w-5xl">
+      <motion.div {...reveal} className="mx-auto max-w-5xl">
         <Eyebrow>O que você recebe</Eyebrow>
         <h2 className="max-w-3xl font-display text-4xl leading-[1.05] tracking-[-0.025em] text-paper text-balance md:text-6xl">
           Uma ferramenta para cada tarefa que <span className="text-accent">se repete</span>
         </h2>
         <ul className="mt-10 grid gap-x-10 border-y-[0.5pt] border-line sm:grid-cols-2">
           {SKILLS.map(([name], i) => (
-            <li key={name} className="flex items-baseline gap-4 border-b-[0.5pt] border-line py-4 last:border-b-0 sm:[&:nth-last-child(2)]:border-b-0">
+            <motion.li key={name} {...item(i)} className="flex items-baseline gap-4 border-b-[0.5pt] border-line py-4 last:border-b-0 sm:[&:nth-last-child(2)]:border-b-0">
               <span className="font-mono text-xs text-accent">{String(i + 1).padStart(2, "0")}</span>
               <span className="font-display text-xl text-paper md:text-2xl">{name}</span>
-            </li>
+            </motion.li>
           ))}
         </ul>
         <p className="mt-6 text-base leading-relaxed text-paper/75 md:text-lg">Cada skill acompanha arquivo de instalação e guia de uso.</p>
@@ -69,7 +94,7 @@ export function UpsellIncluded() {
           Também estão incluídos: Guia de início, Mapa do caso, Manual do Claude, 30 prompts, Primeiro projeto no
           Claude e 5 POPs de exemplo.
         </p>
-      </div>
+      </motion.div>
     </section>
   );
 }
@@ -78,23 +103,23 @@ export function UpsellIncluded() {
 export function UpsellHowTo() {
   return (
     <section id="como-usar" className="bg-surface px-6 py-14 md:px-12 md:py-24">
-      <div className="mx-auto max-w-5xl">
+      <motion.div {...reveal} className="mx-auto max-w-5xl">
         <Eyebrow>Como usar</Eyebrow>
         <h2 className="max-w-3xl font-display text-4xl leading-[1.05] tracking-[-0.025em] text-paper text-balance md:text-6xl">
           Adapte ao seu escritório. Reutilize no <span className="text-accent">próximo caso</span>
         </h2>
         <ol className="mt-10 grid gap-6 md:grid-cols-3 md:gap-10">
           {STEPS.map((step, i) => (
-            <li key={step} className="flex gap-4 border-t-[0.5pt] border-line pt-5">
+            <motion.li key={step} {...item(i)} className="flex gap-4 border-t-[0.5pt] border-line pt-5">
               <span className="mt-1 font-mono text-xs text-accent">{String(i + 1).padStart(2, "0")}</span>
               <span className="font-display text-xl leading-snug text-paper md:text-2xl">{step}</span>
-            </li>
+            </motion.li>
           ))}
         </ol>
         <p className="mt-8 text-base leading-relaxed text-paper/70 md:text-lg">
           Você aplica no seu ritmo, começando pela tarefa que mais se repete.
         </p>
-      </div>
+      </motion.div>
     </section>
   );
 }
@@ -103,7 +128,7 @@ export function UpsellHowTo() {
 export function UpsellOffer({ checkout, freeSkill }: UpsellLinks) {
   return (
     <section id="oferta" className="border-t border-line bg-background px-6 py-14 md:px-12 md:py-28">
-      <div className="mx-auto max-w-xl text-center">
+      <motion.div {...reveal} className="mx-auto max-w-xl text-center">
         <h2 className="font-display text-4xl leading-[1.05] tracking-[-0.025em] text-paper text-balance md:text-5xl">
           R$ 30 de desconto para dar o <span className="text-accent">próximo passo</span>
         </h2>
@@ -132,7 +157,7 @@ export function UpsellOffer({ checkout, freeSkill }: UpsellLinks) {
             individual e acompanhamento não estão incluídos. Revise os resultados antes de usar.
           </p>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
@@ -141,7 +166,7 @@ export function UpsellOffer({ checkout, freeSkill }: UpsellLinks) {
 export function UpsellFinal({ checkout }: Pick<UpsellLinks, "checkout">) {
   return (
     <section className="border-t border-line bg-surface px-6 py-14 md:px-12 md:py-28">
-      <div className="mx-auto max-w-3xl text-center">
+      <motion.div {...reveal} className="mx-auto max-w-3xl text-center">
         <h2 className="font-display text-4xl leading-[1.05] tracking-[-0.025em] text-paper text-balance md:text-6xl">
           Comece com uma skill. Tenha as outras <span className="text-accent">à disposição</span>
         </h2>
@@ -152,7 +177,7 @@ export function UpsellFinal({ checkout }: Pick<UpsellLinks, "checkout">) {
         <div className="mt-8">
           <Cta href={checkout}>Quero aproveitar os R$ 30 de desconto</Cta>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
