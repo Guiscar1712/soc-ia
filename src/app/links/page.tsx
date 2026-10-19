@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { Jost, Nunito_Sans } from "next/font/google";
 import { DotsBackground, OpenSheet, Sheet } from "./links-client";
 import { LexMark } from "./lex-mark";
@@ -11,12 +12,13 @@ const nunito = Nunito_Sans({ variable: "--font-nunito", subsets: ["latin"], weig
 export const metadata: Metadata = {
   title: "Nathalia Fava",
   description:
-    "A vida real de quem empreende na advocacia. Estruturo escritórios e negócios com gestão, estratégia e IA.",
+    "Seu escritório pode trabalhar de outro jeito. Gestão e IA para organizar a rotina e simplificar o trabalho.",
   openGraph: { title: "Nathalia Fava", images: ["/links/avatar.jpg"], locale: "pt_BR" },
 };
 
 const WHATSAPP = "https://wa.me/5541988797899?text=";
 const wa = (text: string) => WHATSAPP + encodeURIComponent(text);
+const CONSULTORIA = "https://consultoria.metodosocia.com.br";
 
 export default function LinksPage() {
   return (
@@ -30,82 +32,72 @@ export default function LinksPage() {
           <h1>
             Nathalia <span>Fava</span>
           </h1>
-          <span className="handle">@nathaliafava</span>
+          <a className="handle" href="https://www.instagram.com/nathaliafava/" target="_blank" rel="noopener">
+            @nathaliafava
+          </a>
           <p className="bio">
-            A vida real de quem empreende na advocacia. Estruturo escritórios e negócios com gestão,
-            estratégia e IA.
+            <b>Seu escritório pode trabalhar de outro jeito.</b> Gestão e IA para organizar a rotina e
+            simplificar o trabalho.
           </p>
         </header>
 
         <section>
-          <div className="label">Em destaque</div>
-          <article className="feature">
+          <div className="label">Destaque</div>
+          <a className="feature" href={CONSULTORIA} target="_blank" rel="noopener">
             <div className="cover" role="img" aria-label="Nathalia Fava, Implementação SÓC.IA">
               <Image className="lockup" src="/links/lockup-socia.png" alt="SÓC.IA" width={100} height={34} />
               <span className="kind">Implementação</span>
               <h2>
-                Eu instalo a IA <span>para você</span>
+                Você conhece a rotina. <span>Eu configuro a IA.</span>
               </h2>
             </div>
             <div className="feature-body">
-              <p className="promise">
-                Pare de ser o <b>gargalo</b> do seu escritório.
-              </p>
               <p>
-                Eu entro na sua operação, identifico onde a IA realmente pode ganhar eficiência e
-                implemento isso para você. Ao final, você recebe os agentes, fluxos, bases e
-                procedimentos de IA configurados e prontos para a sua equipe usar no dia a dia.
+                Identifico o que pode ser automatizado e configuro as ferramentas para o seu escritório.
               </p>
-              <a
-                className="btn btn-solid"
-                href={wa("Oi, Nathalia! Vim pelo Instagram e quero saber da Implementação SÓC.IA.")}
-                target="_blank"
-                rel="noopener"
-              >
-                Quero a implementação
-              </a>
+              <span className="btn btn-solid">Quero IA no meu escritório</span>
             </div>
-          </article>
+          </a>
         </section>
 
         <section>
           <div className="label">Como posso te ajudar</div>
           <div className="offers">
-            <article className="offer">
+            <OpenSheet target="d-sos" className="offer">
               <div className="mark txt" aria-hidden="true">
                 S.O.S
               </div>
               <div>
                 <h3>Consultoria S.O.S</h3>
-                <p>3 meses comigo estruturando o seu escritório.</p>
-                <OpenSheet target="d-sos">Ver detalhes →</OpenSheet>
+                <p>Organize o escritório com acompanhamento.</p>
+                <span className="more">Conhecer a consultoria →</span>
               </div>
-            </article>
-            <article className="offer">
+            </OpenSheet>
+            <OpenSheet target="d-lex" className="offer">
               <div className="mark" aria-hidden="true">
                 <LexMark />
               </div>
               <div>
                 <h3>LexHub</h3>
-                <p>A IA que entende advocacia.</p>
-                <OpenSheet target="d-lex">Ver detalhes →</OpenSheet>
+                <p>Cálculos jurídicos e jurisprudência no seu fluxo de trabalho.</p>
+                <span className="more">Conhecer a LexHub →</span>
               </div>
-            </article>
-            <article className="offer">
+            </OpenSheet>
+            <OpenSheet target="d-caixa" className="offer">
               <div className="mark" aria-hidden="true">
                 <Image src="/links/caixa-preta-mark.png" alt="" width={38} height={34} />
               </div>
               <div>
                 <h3>Caixa Preta SÓC.IA</h3>
-                <p>Ferramentas de IA e processos de exemplo. R$ 97.</p>
-                <OpenSheet target="d-caixa">Ver detalhes →</OpenSheet>
+                <p>Comece pela tarefa que mais se repete. R$ 97 · pagamento único.</p>
+                <span className="more">Ver o que vem na Caixa →</span>
               </div>
-            </article>
+            </OpenSheet>
           </div>
         </section>
 
         <section>
-          <div className="label">Fale comigo</div>
+          <div className="label">Contatos</div>
           <div className="contacts">
             <a
               className="contact"
@@ -115,16 +107,16 @@ export default function LinksPage() {
             >
               <span>
                 <b>Parcerias e palestras</b>
-                <small>WhatsApp · (41) 98879-7899</small>
+                <small>Vamos levar essa conversa para o seu público.</small>
+                <span className="go">Falar sobre parceria ou palestra →</span>
               </span>
-              <span className="go">Conversar →</span>
             </a>
             <a className="contact" href="https://www.favaevitorino.com.br/" target="_blank" rel="noopener">
               <span>
                 <b>Fava e Vitorino Advocacia</b>
-                <small>Atuação em todo o Brasil</small>
+                <small>Conheça nosso escritório e áreas de atuação.</small>
+                <span className="go">Conhecer o escritório →</span>
               </span>
-              <span className="go">Visitar →</span>
             </a>
           </div>
         </section>
@@ -148,16 +140,11 @@ export default function LinksPage() {
         >
           <span className="kind">Sua outra sócia</span>
           <h3>
-            Eu estruturo o seu escritório <span>com você</span>
+            Organize o escritório <span>com acompanhamento</span>
           </h3>
         </div>
         <div className="sheet-body">
-          <p>
-            Durante 3 meses, eu entro no seu escritório como uma outra sócia de gestão. Analisamos
-            juntas o comercial, a operação, a gestão, a experiência do cliente, a equipe e a IA para
-            estruturar o escritório, implementar as mudanças prioritárias e acompanhar até elas
-            funcionarem na prática.
-          </p>
+          <p>3 meses comigo para estruturar processos, responsabilidades e gestão.</p>
           <p>
             <b>O que fica estruturado</b>
           </p>
@@ -166,8 +153,8 @@ export default function LinksPage() {
             <li>Responsabilidades de cada pessoa da equipe</li>
             <li>Rotinas de gestão</li>
           </ul>
-          <a className="btn btn-solid" href="https://form.respondi.app/bMNF44Jx" target="_blank" rel="noopener">
-            Fazer minha aplicação
+          <a className="btn btn-solid" href={CONSULTORIA} target="_blank" rel="noopener">
+            Candidatar meu escritório
           </a>
         </div>
       </Sheet>
@@ -180,21 +167,21 @@ export default function LinksPage() {
           </div>
           <span className="kind">IA para a advocacia</span>
           <h3>
-            A IA que <span>entende</span> advocacia
+            Cálculos e <span>jurisprudência</span>
           </h3>
         </div>
         <div className="sheet-body">
           <p>
-            IA genérica começa escrevendo. A LexHub começa entendendo o caso, e só depois monta a peça
-            com você.
+            Conheça o plugin de cálculos jurídicos e pesquise jurisprudência para fundamentar suas
+            peças.
           </p>
           <ul>
-            <li>Petições em Visual Law, mais claras para o juiz ler</li>
+            <li>Cálculos jurídicos dentro da conversa</li>
             <li>Jurisprudência real, com o link do tribunal</li>
-            <li>Cálculos e consultas dentro da conversa</li>
+            <li>Apoio na construção de peças a partir do material do caso</li>
           </ul>
           <a className="btn btn-solid" href="https://lexhubtech.com/" target="_blank" rel="noopener">
-            Conhecer a LexHub
+            Acessar a LexHub
           </a>
         </div>
       </Sheet>
@@ -210,23 +197,21 @@ export default function LinksPage() {
           />
           <span className="kind">Instale sozinha</span>
           <h3>
-            Eu te entrego <span>o que usar</span>
+            Comece pelo <span>que se repete</span>
           </h3>
         </div>
         <div className="sheet-body">
-          <p>
-            Ferramentas de IA e processos de exemplo para registrar suas rotinas e criar
-            materiais que você revisa e reutiliza.
-          </p>
+          <p>Skills de IA, guias e processos de exemplo para aplicar no seu ritmo.</p>
           <ul>
             <li>7 skills com arquivo de instalação e guia de uso</li>
             <li>Guia de início, Mapa do caso e Manual do Claude para o escritório</li>
             <li>30 prompts e 5 POPs de exemplo para adaptar</li>
-            <li>R$ 97 · pagamento único. Requer Claude ou ChatGPT</li>
+            <li>R$ 97 · pagamento único</li>
           </ul>
-          <a className="btn btn-solid" href="/">
-            Quero minha Caixa Preta
-          </a>
+          <p>Requer Claude ou ChatGPT. Assinatura da plataforma não incluída.</p>
+          <Link className="btn btn-solid" href="/">
+            Conhecer a Caixa Preta
+          </Link>
         </div>
       </Sheet>
     </div>
