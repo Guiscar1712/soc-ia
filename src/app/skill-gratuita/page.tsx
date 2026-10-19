@@ -34,24 +34,10 @@ export default function FreeSkillUpsell() {
       />
       <Script id="eduzz-post-acquisition-checkout" strategy="afterInteractive">
         {`(function () {
-  // Keep the current URL intact: Eduzz reads the free acquisition's transaction here.
-  // Only verified campaign labels may cross into the separate paid checkout.
-  var allowed = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'];
-  var incoming = new URLSearchParams(window.location.search);
-  var tracking = new URLSearchParams();
-  allowed.forEach(function (key) {
-    var values = incoming.getAll(key);
-    var value = values[0];
-    if (values.length !== 1 || !value || !/^[a-zA-Z0-9][a-zA-Z0-9._~-]{0,99}$/.test(value)) return;
-    if (/^[0-9]{11,}$/.test(value) || /^[a-f0-9]{32,}$/i.test(value) || /^[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}$/i.test(value)) return;
-    tracking.set(key, value);
-  });
+  // A transação da skill gratuita fica na URL desta página. utm_* e fbclid vão pelo PassUtmToCheckout.
   document.querySelectorAll('a[href^="https://chk.eduzz.com/"]').forEach(function (btn) {
     var checkout = new URL(btn.href);
     if (checkout.origin !== 'https://chk.eduzz.com' || checkout.pathname !== '/zoaqb3cw') return;
-    checkout.search = tracking.toString();
-    checkout.hash = '';
-    btn.href = checkout.toString();
     if (btn.dataset.eduzzClickTracked) return;
     btn.dataset.eduzzClickTracked = 'true';
     btn.addEventListener('click', function () {

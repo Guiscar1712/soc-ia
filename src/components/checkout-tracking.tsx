@@ -1,6 +1,6 @@
 import Script from "next/script";
 
-/** Marca o clique no checkout (pixel da Meta) e repassa os parâmetros da URL (UTMs) para a Eduzz. */
+/** Marca o clique no checkout (pixel da Meta). Os parâmetros da URL vão em PassUtmToCheckout. */
 export function CheckoutTracking() {
   return (
     <Script id="eduzz-checkout" strategy="afterInteractive">
@@ -8,8 +8,6 @@ export function CheckoutTracking() {
   btn.addEventListener('click', function(){
     fbq('trackCustom', 'CliqueCheckout');
   });
-  var q = window.location.search;
-  if (q) btn.href += (btn.href.includes('?') ? '&' : '?') + q.substring(1);
 });`}
     </Script>
   );

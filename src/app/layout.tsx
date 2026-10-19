@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { Outfit, Inter, JetBrains_Mono } from "next/font/google";
+import { PassUtmToCheckout } from "@/components/pass-utm-to-checkout";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -85,6 +86,7 @@ fbq('track', 'ViewContent', {content_name: 'Caixa Preta SOC.IA', value: socValue
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "yzny99nmnd");`}
         </Script>
+        <PassUtmToCheckout />
         {children}
       </body>
     </html>
