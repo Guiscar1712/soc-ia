@@ -18,7 +18,14 @@ export const metadata: Metadata = {
 
 const WHATSAPP = "https://wa.me/5541988797899?text=";
 const wa = (text: string) => WHATSAPP + encodeURIComponent(text);
-const CONSULTORIA = "https://consultoria.metodosocia.com.br";
+
+/** Atribuição fixa da bio do Instagram. Não copia a query de quem chegou em /links. */
+const BIO_UTM = "utm_source=instagram&utm_medium=bio&utm_campaign=link-na-bio";
+const withBioUtm = (url: string, content: string) =>
+  `${url}?${BIO_UTM}&utm_content=${encodeURIComponent(content)}`;
+
+const IMPLEMENTACAO = withBioUtm("https://consultoria.metodosocia.com.br", "implementacao");
+const CONSULTORIA_SOS = withBioUtm("https://consultoria.metodosocia.com.br", "consultoria-sos");
 
 export default function LinksPage() {
   return (
@@ -43,7 +50,7 @@ export default function LinksPage() {
 
         <section>
           <div className="label">Destaque</div>
-          <a className="feature" href={CONSULTORIA} target="_blank" rel="noopener">
+          <a className="feature" href={IMPLEMENTACAO} target="_blank" rel="noopener">
             <div className="cover" role="img" aria-label="Nathalia Fava, Implementação SÓC.IA">
               <Image className="lockup" src="/links/lockup-socia.png" alt="SÓC.IA" width={100} height={34} />
               <span className="kind">Implementação</span>
@@ -153,7 +160,7 @@ export default function LinksPage() {
             <li>Responsabilidades de cada pessoa da equipe</li>
             <li>Rotinas de gestão</li>
           </ul>
-          <a className="btn btn-solid" href={CONSULTORIA} target="_blank" rel="noopener">
+          <a className="btn btn-solid" href={CONSULTORIA_SOS} target="_blank" rel="noopener">
             Candidatar meu escritório
           </a>
         </div>
