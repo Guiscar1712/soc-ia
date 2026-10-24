@@ -70,7 +70,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
         <Script id="meta-pixel" strategy="beforeInteractive">
-          {`var socValue={"/":97,"/b":97,"/skill-gratuita":67}[location.pathname];if(socValue){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+          {`var socValue={"/":97,"/b":97,"/skill-gratuita":67,"/rmkt":67}[location.pathname];if(socValue){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
 n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,

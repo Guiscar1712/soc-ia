@@ -36,8 +36,11 @@ const item = (i: number) =>
 
 const STEPS = ["Instale seguindo o guia", "Ajuste as instruções ao seu padrão", "Informe os dados do caso e revise o resultado"];
 
-/** Topo: confirma a gratuita e apresenta a oferta. */
-export function UpsellHero({ checkout }: Pick<UpsellLinks, "checkout">) {
+/** Topo da oferta. `confirmFreeSkill` mostra a confirmação de envio da página pós-cadastro. */
+export function UpsellHero({
+  checkout,
+  confirmFreeSkill = true,
+}: Pick<UpsellLinks, "checkout"> & { confirmFreeSkill?: boolean }) {
   const reduce = useReducedMotion();
   const enter = (delay: number) =>
     reduce ? {} : { initial: { opacity: 0, y: 24 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.7, delay, ease } };
@@ -46,9 +49,9 @@ export function UpsellHero({ checkout }: Pick<UpsellLinks, "checkout">) {
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 md:grid-cols-12">
         <div className="md:col-span-7">
           <motion.div {...enter(0)}>
-            <Eyebrow>Sua skill gratuita está a caminho do seu e-mail</Eyebrow>
+            {confirmFreeSkill && <Eyebrow>Sua skill gratuita está a caminho do seu e-mail</Eyebrow>}
             <h1 className="font-display text-[2.6rem] leading-[1.02] tracking-[-0.03em] text-paper text-balance sm:text-6xl lg:text-[4.75rem]">
-              Agora, leve a Caixa Preta completa por <span className="text-accent">R$ 67</span>
+              {confirmFreeSkill ? "Agora, leve" : "Leve"} a Caixa Preta completa por <span className="text-accent">R$ 67</span>
             </h1>
           </motion.div>
           <motion.p {...enter(0.12)} className="mt-7 max-w-xl text-lg leading-relaxed text-paper/80">
@@ -60,9 +63,11 @@ export function UpsellHero({ checkout }: Pick<UpsellLinks, "checkout">) {
             <Cta href={checkout} className="mt-6 w-full sm:w-auto">
               Quero minha Caixa Preta por R$ 67
             </Cta>
-            <p className="mt-5 max-w-md text-sm font-normal leading-relaxed text-paper/60">
-              Seu material gratuito já está liberado. A compra é opcional.
-            </p>
+            {confirmFreeSkill && (
+              <p className="mt-5 max-w-md text-sm font-normal leading-relaxed text-paper/60">
+                Seu material gratuito já está liberado. A compra é opcional.
+              </p>
+            )}
           </motion.div>
         </div>
         <div className="hidden justify-center md:col-span-5 md:flex">
