@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Nav } from "@/components/nav";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { BrandLockup } from "@/components/brand-mark";
@@ -27,7 +28,12 @@ export default function Home() {
       <footer className="border-t border-line bg-background px-6 py-10 pb-28 md:px-12 md:pb-10">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 md:flex-row">
           <BrandLockup className="opacity-90" />
-          <p className="text-sm font-normal text-paper/55">© 2026 SÓC.IA</p>
+          <p className="text-sm font-normal text-paper/55">
+            © 2026 SÓC.IA ·{" "}
+            <Link href="/privacidade" className="underline underline-offset-2 hover:text-paper">
+              Política de Privacidade
+            </Link>
+          </p>
         </div>
       </footer>
       <FloatingCta />
