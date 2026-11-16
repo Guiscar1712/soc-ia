@@ -4,6 +4,7 @@ import {
   FacebookLogo,
 } from "@phosphor-icons/react/ssr";
 import { ArrowRight } from "@phosphor-icons/react/ssr";
+import Link from "next/link";
 import { BrandLockup } from "@/components/brand-mark";
 
 export function Closing() {
@@ -45,7 +46,10 @@ export function Footer() {
         <div className="flex flex-col items-center md:items-start gap-3">
           <BrandLockup className="h-7 md:h-8 opacity-90" />
           <p className="text-sm text-paper/50">
-            © 2026 SÓC.IA · Caixa Preta v1.0
+            © 2026 SÓC.IA · Caixa Preta v1.0 ·{" "}
+            <Link href="/privacidade" className="underline underline-offset-2 hover:text-paper">
+              Política de Privacidade
+            </Link>
           </p>
         </div>
         <div className="flex items-center gap-5">
